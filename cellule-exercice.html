@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVT – Exercices sur la Cellule</title>
+  <style>
+    :root {
+      --green: #28a745;
+      --blue: #007bff;
+      --bg: #f5f7fb;
+      --text: #0b2545;
+      --card: #fff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--green), #1e7e34);
+      color: white;
+      text-align: center;
+      padding: 45px 20px;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      opacity: 0.9;
+      font-size: 1.1rem;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: var(--card);
+      border-radius: 12px;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+      padding: 30px;
+    }
+
+    h2 {
+      color: var(--green);
+      border-left: 6px solid var(--green);
+      padding-left: 10px;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+
+    h3 {
+      color: var(--blue);
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    p, li {
+      margin-bottom: 12px;
+    }
+
+    ul {
+      margin-left: 25px;
+      margin-bottom: 15px;
+    }
+
+    .question {
+      background: #f8f9fa;
+      border-left: 5px solid var(--green);
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .corrige {
+      display: none;
+      background: #e7f9e7;
+      border-left: 5px solid var(--blue);
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    .show-btn {
+      background: var(--blue);
+      color: #fff;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+
+    .show-btn:hover {
+      background: #0056b3;
+    }
+
+    footer {
+      text-align: center;
+      background: #1e7e34;
+      color: white;
+      padding: 15px;
+      margin-top: 40px;
+    }
+
+    .back-btn {
+      background: #007bff;
+      padding: 10px 15px;
+      border-radius: 8px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .back-btn:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🧬 Exercices — La Cellule</h1>
+  <p>Renforce ta compréhension du chapitre 1 : Structure et fonction de la cellule</p>
+  <a href="svt.html" class="back-btn">⬅ Retour aux chapitres</a>
+  <a href="cellule.html" class="back-btn">📖 Voir le cours</a>
+</header>
+
+<main>
+
+  <h2>Exercice 1 : QCM — Généralités sur la cellule</h2>
+  <div class="question">
+    <p><strong>1.</strong> La cellule est :<br>
+      a) L’unité structurale du vivant<br>
+      b) L’unité fonctionnelle du vivant<br>
+      c) L’unité reproductrice du vivant<br>
+      d) Toutes les réponses sont correctes
+    </p>
+    <button class="show-btn" onclick="toggleCorrige(this)">Afficher la correction</button>
+    <div class="corrige">
+      ✅ Réponse : d) Toutes les réponses sont correctes.<br>
+      <em>La cellule constitue la base structurelle, fonctionnelle et reproductrice de tout organisme vivant.</em>
+    </div>
+  </div>
+
+  <div class="question">
+    <p><strong>2.</strong> Le matériel génétique d’une cellule procaryote se trouve :</p>
+    <ul>
+      <li>a) Dans le noyau</li>
+      <li>b) Dans le cytoplasme</li>
+      <li>c) Dans le réticulum endoplasmique</li>
+      <li>d) Dans la membrane plasmique</li>
+    </ul>
+    <button class="show-btn" onclick="toggleCorrige(this)">Afficher la correction</button>
+    <div class="corrige">
+      ✅ Réponse : b) Dans le cytoplasme.<br>
+      <em>Les bactéries n’ont pas de noyau, l’ADN flotte librement dans le cytoplasme sous forme de nucléoïde.</em>
+    </div>
+  </div>
+
+  <h2>Exercice 2 : Vrai ou Faux</h2>
+  <div class="question">
+    <ul>
+      <li>1️⃣ Les mitochondries sont responsables de la photosynthèse.</li>
+      <li>2️⃣ Le noyau contient l’information génétique sous forme d’ADN.</li>
+      <li>3️⃣ Les lysosomes assurent la digestion des déchets cellulaires.</li>
+      <li>4️⃣ Les cellules animales contiennent des chloroplastes.</li>
+    </ul>
+    <button class="show-btn" onclick="toggleCorrige(this)">Afficher la correction</button>
+    <div class="corrige">
+      ❌ 1️⃣ Faux — la photosynthèse se déroule dans les chloroplastes.<br>
+      ✅ 2️⃣ Vrai — l’ADN est bien contenu dans le noyau.<br>
+      ✅ 3️⃣ Vrai — les lysosomes digèrent les débris cellulaires.<br>
+      ❌ 4️⃣ Faux — seuls les végétaux ont des chloroplastes.
+    </div>
+  </div>
+
+  <h2>Exercice 3 : Questions de réflexion</h2>
+  <div class="question">
+    <p><strong>1.</strong> Explique la différence entre cellule procaryote et cellule eucaryote.</p>
+    <p><strong>2.</strong> Pourquoi dit-on que la cellule est une unité fonctionnelle ?</p>
+    <p><strong>3.</strong> Cite trois organites spécifiques des cellules végétales et précise leur rôle.</p>
+    <button class="show-btn" onclick="toggleCorrige(this)">Afficher la correction</button>
+    <div class="corrige">
+      <ul>
+        <li>1️⃣ Les cellules procaryotes n’ont pas de noyau, alors que les eucaryotes en ont un.</li>
+        <li>2️⃣ Parce qu’elle réalise toutes les fonctions de la vie (nutrition, reproduction, communication).</li>
+        <li>3️⃣ Chloroplastes (photosynthèse), vacuole (stockage), paroi cellulosique (protection et rigidité).</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Exercice 4 : Schéma à compléter</h2>
+  <div class="question">
+    <p>
+      🔬 Complète le schéma d’une cellule eucaryote en indiquant les éléments suivants : noyau, cytoplasme, membrane plasmique, mitochondries, appareil de Golgi.
+    </p>
+    <p>
+      Tu peux le faire sur papier, ou insérer une image dans ton cahier numérique.  
+      (💡 Astuce : revois les fonctions des organites dans le cours pour bien les positionner.)
+    </p>
+  </div>
+
+  <h2>Exercice 5 : Application – Métabolisme cellulaire</h2>
+  <div class="question">
+    <p>
+      Explique la relation entre respiration cellulaire et photosynthèse.  
+      Indique les équations simplifiées des deux réactions et montre en quoi elles sont complémentaires.
+    </p>
+    <button class="show-btn" onclick="toggleCorrige(this)">Afficher la correction</button>
+    <div class="corrige">
+      <p>
+        🌿 La photosynthèse produit du glucose et de l’oxygène à partir du dioxyde de carbone et de l’eau :  
+        <strong>6 CO₂ + 6 H₂O → C₆H₁₂O₆ + 6 O₂</strong>  
+        🔥 La respiration cellulaire fait l’inverse : elle consomme le glucose et l’oxygène pour produire de l’énergie (ATP) :  
+        <strong>C₆H₁₂O₆ + 6 O₂ → 6 CO₂ + 6 H₂O + énergie (ATP)</strong>
+      </p>
+      <p>
+        ➡️ Ces deux processus sont donc complémentaires et assurent le cycle du carbone et de l’énergie dans le vivant.
+      </p>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Aide aux Élèves — Exercices SVT Terminale 🧬</p>
+</footer>
+
+<script>
+  function toggleCorrige(btn) {
+    const corrige = btn.nextElementSibling;
+    corrige.style.display = corrige.style.display === "block" ? "none" : "block";
+    btn.textContent = corrige.style.display === "block" ? "Masquer la correction" : "Afficher la correction";
+  }
+</script>
+
+</body>
+</html>

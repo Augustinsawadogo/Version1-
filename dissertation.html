@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dissertation — Méthode (Terminale)</title>
+  <style>
+    :root{
+      --blue:#007BFF;
+      --dark:#0b2545;
+      --bg:#f5f7fb;
+      --card:#fff;
+      --muted:#6b7280;
+      --accent:#ff9800;
+      --success:#28a745;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Segoe UI", Roboto, Arial, sans-serif;
+      background:var(--bg);
+      color:var(--dark);
+      -webkit-font-smoothing:antialiased;
+      line-height:1.65;
+    }
+    header{
+      background: linear-gradient(135deg,var(--blue),#0056b3);
+      color:#fff;
+      text-align:center;
+      padding:44px 18px;
+    }
+    header h1{margin:0;font-size:1.9rem}
+    header p{margin:8px 0 0;opacity:.95}
+    .container{max-width:1000px;margin:26px auto;padding:18px}
+    .card{background:var(--card);border-radius:10px;padding:18px;margin-bottom:18px;
+          box-shadow:0 6px 20px rgba(15,23,42,0.06)}
+    h2{color:var(--blue);margin:6px 0 12px;border-left:6px solid var(--blue);padding-left:12px}
+    h3{color:var(--dark);margin:12px 0}
+    p,li{font-size:1rem;color:var(--dark)}
+    ul{padding-left:1.1rem}
+    .definition{background:#e8f5ff;border-left:5px solid var(--blue);padding:12px;border-radius:6px;margin:12px 0}
+    .important{background:#fff8e6;border-left:5px solid var(--accent);padding:12px;border-radius:6px;margin:12px 0}
+    .example{background:#eefaf1;border-left:4px solid var(--success);padding:12px;border-radius:6px;margin:12px 0}
+    .exercise{background:#fff4e5;border-left:4px solid var(--accent);padding:12px;border-radius:6px;margin:12px 0}
+    .tips{background:#f7f9ff;border-left:4px solid #2b6cb0;padding:12px;border-radius:6px;margin:12px 0}
+    .small{font-size:0.95rem;color:var(--muted)}
+    .btn{display:inline-block;padding:8px 12px;background:var(--blue);color:#fff;border-radius:8px;text-decoration:none;border:none;cursor:pointer}
+    .btn.secondary{background:#6c757d}
+    code{background:#f0f0f0;padding:3px 6px;border-radius:4px;font-family:Consolas,monospace}
+    footer{text-align:center;padding:14px 10px;color:#fff;background:#0056b3;margin-top:18px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+    .phrase{background:#f6f8ff;padding:8px;border-radius:6px;border-left:4px solid #9ec5ff;margin:8px 0}
+    .sol{display:none;background:#f1f7ff;border-left:4px solid #2b6cb0;padding:10px;border-radius:6px;margin-top:8px}
+    @media (max-width:800px){header h1{font-size:1.5rem}}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📝 Méthode de la dissertation — Terminale</h1>
+    <p>Page méthodologique : structure, démarches, phrases-outils et conseils pratiques</p>
+  </header>
+
+  <main class="container">
+
+    <section class="card">
+      <h2>1. Qu'est-ce que la dissertation ?</h2>
+      <p class="definition"><strong>Objectif :</strong> répondre à une problématique littéraire à partir d’un sujet donné, en construisant un raisonnement organisé, argumenté et illustré par des exemples littéraires. La dissertation n'est pas un commentaire : elle construit une réflexion personnelle et structurée.</p>
+      <p class="small">Ton but : montrer que tu maîtrises une lecture critique, des références et une logique argumentative claire.</p>
+    </section>
+
+    <section class="card">
+      <h2>2. Structure générale (indispensable)</h2>
+      <ol>
+        <li><strong>Introduction</strong> (environ 10–15% du temps) : amorce → définition des termes → problématique → annonce du plan.</li>
+        <li><strong>Développement</strong> (2 ou 3 parties équilibrées) : chaque partie = paragraphe principal (ou bloc) avec idée directrice + exemples + mini-conclusion partielle / transition.</li>
+        <li><strong>Conclusion</strong> : réponse synthétique à la problématique, ouverture pertinente (facultative mais appréciée).</li>
+      </ol>
+
+      <div class="important">
+        <strong>Rappel :</strong> respect strict de la problématique. Le plan doit répondre directement à la problématique posée.
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>3. L'introduction — étape par étape</h2>
+
+      <ol>
+        <li><strong>Amorce</strong> : phrase d'entrée qui capte (court ; pas de citation longue). Peut être historique, littéraire, ou une remarque générale. Évite les phrases vagues et trop générales.</li>
+        <li><strong>Présentation du sujet</strong> : reformule brièvement le sujet avec tes mots (1 phrase claire).</li>
+        <li><strong>Définition des termes importants</strong> : préciser les mots clés (ex : « œuvre », « lyrisme », « liberté »...). 1 à 2 phrases.</li>
+        <li><strong>Problématique</strong> : question précise que tu vas traiter (une phrase). Elle doit montrer le enjeu du sujet et orienter le plan.</li>
+        <li><strong>Annonce du plan</strong> : formule en 1 phrase la progression (ne pas dire « je vais parler de » — préfère « nous verrons d’abord..., puis..., enfin... »).</li>
+      </ol>
+
+      <div class="phrase"><strong>Exemple d'intro courte :</strong> « À première vue, le personnage semble dépeint sans ambiguïté, mais derrière l'apparente simplicité se cache une ambivalence morale : comment l'auteur met-il en scène cette complexité ? Nous étudierons d'abord..., puis...»</div>
+    </section>
+
+    <section class="card">
+      <h2>4. La problématique — clef de voûte</h2>
+      <p>La problématique transforme l'énoncé en question argumentative. Elle doit :</p>
+      <ul>
+        <li>Montrer un conflit d'idées ou un enjeu (tension à résoudre).</li>
+        <li>Diriger le plan (donner l'axe du développement).</li>
+        <li>Être claire et formulée en une phrase.</li>
+      </ul>
+
+      <div class="tips">
+        <strong>Astuce :</strong> cherche le verbe central du sujet (analyser, montrer, expliquer, discuter...) et combine-le avec un angle (effet sur le lecteur, rôle stylistique, portée morale, etc.). Evite la question trop large ou purement descriptive.
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>5. Le développement — construire des arguments solides</h2>
+      <p>Un bon développement se compose généralement de <strong>2 ou 3 parties</strong> (cadeau : 3 parties est la norme au lycée). Chaque partie contient :</p>
+      <ul>
+        <li><strong>Idée-directrice</strong> : phrase d'ouverture qui annonce l'idée de la partie.</li>
+        <li><strong>Argument</strong> : raisonnement expliquant l'idée.</li>
+        <li><strong>Illustration</strong> : exemple littéraire précis (citation courte, référence d'œuvre/chapitre/personnage, auteur + date si utile).</li>
+        <li><strong>Explication</strong> : dire pourquoi l'exemple confirme l'argument.</li>
+        <li><strong>Mini-conclusion / transition</strong> : fin de la partie qui annonce la suivante.</li>
+      </ul>
+
+      <div class="example">
+        <b>Modèle de paragraphe :</b><br>
+        <em>Phrase d'ouverture (idée)</em> → <em>argumentation</em> → <em>citation / référence</em> → <em>explication précise</em> → <em>transition</em>.
+      </div>
+
+      <div class="phrase"><strong>Exemple de phrase d'ouverture :</strong> « D'une part, l'auteur met en scène... »</div>
+    </section>
+
+    <section class="card">
+      <h2>6. Types de plan (comment choisir)</h2>
+      <ul>
+        <li><strong>Plan dialectique</strong> : thèse / antithèse / synthèse — utile quand le sujet oppose deux idées.</li>
+        <li><strong>Plan analytique</strong> : dégager les éléments du sujet (utile pour étudier procédés, effets, variantes).</li>
+        <li><strong>Plan thématique</strong> : organiser par thèmes ou aspects du sujet (utile pour sujets larges).</li>
+      </ul>
+
+      <div class="small">Choisis le plan qui répond le mieux à ta problématique ; annonce-le clairement en introduction.</div>
+    </section>
+
+    <section class="card">
+      <h2>7. Les citations — comment les utiliser</h2>
+      <ul>
+        <li>Rappelle brièvement le contexte (titre, personnage, lieu dans l'œuvre) avant la citation.</li>
+        <li>Ne cite que l'essentiel (1 à 2 courts extraits). Évite les longs blocs.</li>
+        <li>Analyse toujours la citation : explique son effet, son rôle, ses mots-clés.</li>
+        <li>Respecte la ponctuation : si tu modifies, indique avec [...].</li>
+      </ul>
+
+      <div class="example">
+        <b>Bien :</b> « Dans <em>La Princesse de Clèves</em>, la formule "..." souligne la tension intérieure du personnage : cette tournure montre... »<br>
+        <b>Mal :</b> reciter longuement sans expliquer.
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>8. La conclusion — écrire pour conclure</h2>
+      <ol>
+        <li>Rappel synthétique de la réponse à la problématique (1 phrase).</li>
+        <li>Bilan succinct des grandes idées (une ou deux phrases).</li>
+        <li>Ouverture pertinente (facultative) : élargir la réflexion sans l'initier radicalement.</li>
+      </ol>
+
+      <div class="important">Ne pas apporter d'argument nouveau dans la conclusion : elle doit synthétiser et répondre.</div>
+    </section>
+
+    <section class="card">
+      <h2>9. Phrases-outils & formulations utiles</h2>
+      <div class="grid">
+        <div class="phrase">« On peut soutenir que... »</div>
+        <div class="phrase">« Il convient d'abord de montrer que... »</div>
+        <div class="phrase">« En revanche... »</div>
+        <div class="phrase">« Cela s'explique par... »</div>
+        <div class="phrase">« Cette formulation met en évidence... »</div>
+        <div class="phrase">« Ainsi, on comprend que... »</div>
+        <div class="phrase">« En conclusion, il apparaît que... »</div>
+        <div class="phrase">« On peut ouvrir sur... »</div>
+      </div>
+      <p class="small">Utilise ces tournures pour la cohérence et la clarté ; varie le vocabulaire pour éviter les répétitions.</p>
+    </section>
+
+    <section class="card">
+      <h2>10. Erreurs fréquentes (à éviter)</h2>
+      <ul>
+        <li>Répondre au sujet par une paraphrase ou un résumé sans problématique.</li>
+        <li>Manque d'exemples précis : attention aux généralisations non étayées.</li>
+        <li>Multiples digressions hors-sujet ; perte de la ligne argumentative.</li>
+        <li>Usage abusif de citations longues sans analyse.</li>
+        <li>Introduction trop courte ou trop longue ; absence d'annonce de plan.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>11. Gestion du temps et plan de travail (bac)</h2>
+      <ol>
+        <li><strong>Lecture & analyse du sujet</strong> : 10–12 minutes — reformuler, définir les mots, dégager le problème.</li>
+        <li><strong>Rédaction du plan</strong> : 8–12 minutes — choisir le plan et ordonner les parties.</li>
+        <li><strong>Rédaction</strong> : 70–90 minutes — introduction, développement (équilibré), conclusion.</li>
+        <li><strong>Relecture</strong> : 8–10 minutes — orthographe, liens logiques, fluidité.</li>
+      </ol>
+      <div class="small">Ces durées sont indicatives ; adapte-les selon ton rythme. L'important : une introduction claire et un plan respecté.</div>
+    </section>
+
+    <section class="card">
+      <h2>12. Grille d'évaluation rapide (auto-contrôle)</h2>
+      <ul>
+        <li><strong>Clarté de la problématique</strong> (0–4 pts)</li>
+        <li><strong>Structure & cohérence du plan</strong> (0–6 pts)</li>
+        <li><strong>Qualité des arguments et exemples</strong> (0–6 pts)</li>
+        <li><strong>Qualité de la langue (orthographe, style)</strong> (0–3 pts)</li>
+        <li><strong>Conclusion & ouverture</strong> (0–1 pt)</li>
+      </ul>
+      <p class="small">Total : 20 pts — utile pour te corriger après une rédaction.</p>
+    </section>
+
+    <section class="card">
+      <h2>13. Exemple (schématique) d'introduction et annonce de plan</h2>
+      <p><strong>Sujet :</strong> « La littérature peut-elle changer le monde ? »</p>
+
+      <div class="example">
+        <b>Intro (schéma) :</b><br>
+        Amorcer (contexte bref). → Reformuler le sujet : la littérature et son pouvoir d'action. → Définir : "changer le monde" (moral, social, politique). → Problématique : « Dans quelle mesure la littérature a-t-elle un pouvoir transformateur réel, formation des consciences ou simple reflet des transformations ? » → Annonce du plan : « Nous envisagerons d'abord... ensuite... enfin... »
+      </div>
+
+      <div class="small">Je t'ai donné le squelette pour l'introduction : entraîne-toi à rédiger des introductions complètes à partir de ce canevas.</div>
+    </section>
+
+    <section class="card">
+      <h2>14. Conseils finaux & bonnes pratiques</h2>
+      <ul>
+        <li>Soigne l'orthographe et la syntaxe : un style clair vaut plus que des phrases alambiquées.</li>
+        <li>Préfère la précision (dates, titres, auteurs) plutôt que des références vagues.</li>
+        <li>Entraîne-toi à construire des plans en temps limité et à rédiger des introductions rapidement.</li>
+        <li>Relis : vérifie cohérence problématique / plan / conclusion.</li>
+      </ul>
+
+      <div style="margin-top:12px">
+        <a class="btn" href="index.html">⬅ Retour à l'accueil</a>
+        <button class="btn secondary" onclick="toggleTips()">Afficher/masquer exemples de phrases</button>
+      </div>
+
+      <div id="phrases" style="margin-top:12px;display:none">
+        <div class="tips">
+          <strong>Exemples de formulations (introduction)</strong>
+          <ul>
+            <li>« Depuis..., la question de ... se pose avec acuité : ... »</li>
+            <li>« Le présent sujet invite à interroger ... »</li>
+            <li>« On peut se demander en quoi ... »</li>
+          </ul>
+        </div>
+        <div class="tips" style="margin-top:8px">
+          <strong>Formules de transition</strong>
+          <ul>
+            <li>« D'une part... / D'autre part... »</li>
+            <li>« En conséquence... »</li>
+            <li>« Toutefois... »</li>
+            <li>« Ainsi... »</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Aide aux Élèves — Méthode dissertation</p>
+  </footer>
+
+  <script>
+    function toggleTips(){
+      const el = document.getElementById('phrases');
+      if(!el) return;
+      el.style.display = (el.style.display === 'none' || el.style.display === '') ? 'block' : 'none';
+      if(el.style.display === 'block') el.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  </script>
+</body>
+</html>

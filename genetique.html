@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVT Terminale – Génétique</title>
+  <style>
+    :root {
+      --blue: #007bff;
+      --green: #2e8b57;
+      --bg: #f5f7fb;
+      --card: #fff;
+      --text: #0b2545;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      color: #fff;
+      text-align: center;
+      padding: 45px 20px;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      opacity: 0.9;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: var(--card);
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    h2 {
+      color: var(--blue);
+      margin-top: 30px;
+      margin-bottom: 12px;
+      border-left: 5px solid var(--blue);
+      padding-left: 10px;
+    }
+
+    h3 {
+      color: var(--green);
+      margin-top: 15px;
+    }
+
+    p {
+      text-align: justify;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      margin-left: 25px;
+      margin-bottom: 10px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .schema {
+      background: #e8f2ff;
+      border-left: 4px solid var(--blue);
+      padding: 10px;
+      margin: 15px 0;
+      border-radius: 8px;
+      font-style: italic;
+    }
+
+    .exemple {
+      background: #f2f9f4;
+      border-left: 4px solid var(--green);
+      padding: 10px;
+      border-radius: 8px;
+      margin: 15px 0;
+      font-style: italic;
+    }
+
+    footer {
+      text-align: center;
+      background: var(--green);
+      color: #fff;
+      padding: 15px;
+      margin-top: 40px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--blue);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 15px;
+    }
+
+    .btn:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🧬 SVT Terminale — Génétique</h1>
+  <p>Comprendre les mécanismes de l’hérédité et du patrimoine génétique</p>
+  <a href="svt.html" class="btn">⬅ Retour aux chapitres</a>
+</header>
+
+<main>
+
+  <h2>I. Introduction à la génétique</h2>
+  <p>
+    La génétique est la science qui étudie l’hérédité, c’est-à-dire la transmission des caractères des parents à leurs descendants.  
+    Elle repose sur la compréhension du rôle de l’ADN, du gène et des mécanismes de reproduction cellulaire.
+  </p>
+
+  <h3>1. Notions fondamentales</h3>
+  <ul>
+    <li><strong>Gène :</strong> unité d’information héréditaire codant pour un caractère donné.</li>
+    <li><strong>Allèle :</strong> version différente d’un même gène.</li>
+    <li><strong>Génotype :</strong> ensemble des gènes d’un individu.</li>
+    <li><strong>Phénotype :</strong> ensemble des caractères observables résultant de l’expression du génotype.</li>
+  </ul>
+
+  <div class="schema">
+    📘 Schéma conceptuel :  
+    ADN → Gènes → Protéines → Caractères → Phénotype
+  </div>
+
+  <h2>II. Support de l’hérédité : l’ADN</h2>
+  <p>
+    L’<strong>acide désoxyribonucléique (ADN)</strong> est une molécule en double hélice constituée de deux brins complémentaires.  
+    Elle contient l’information génétique sous forme d’une séquence de nucléotides : A, T, C et G.
+  </p>
+
+  <h3>1. Structure</h3>
+  <p>L’ADN est formé de nucléotides composés de :</p>
+  <ul>
+    <li>Un groupement phosphate</li>
+    <li>Un sucre (désoxyribose)</li>
+    <li>Une base azotée (Adénine, Thymine, Cytosine ou Guanine)</li>
+  </ul>
+
+  <h3>2. Réplication de l’ADN</h3>
+  <p>
+    Avant toute division cellulaire, l’ADN se réplique pour transmettre fidèlement l’information génétique.  
+    Chaque molécule d’ADN engendre deux copies identiques.
+  </p>
+
+  <div class="exemple">
+    💡 Exemple :  
+    Si une séquence d’ADN parentale est <code>ATTGC</code>, les deux brins complémentaires produits seront également <code>ATTGC</code>.
+  </div>
+
+  <h2>III. Division cellulaire : mitose et méiose</h2>
+  <h3>1. La mitose</h3>
+  <p>
+    C’est une division cellulaire qui produit deux cellules filles identiques à la cellule mère.  
+    Elle assure la croissance et la régénération des tissus.
+  </p>
+
+  <h3>2. La méiose</h3>
+  <p>
+    La méiose est une division cellulaire spécifique à la reproduction sexuée.  
+    Elle produit des gamètes (spermatozoïdes et ovules) contenant la moitié du nombre de chromosomes.
+  </p>
+
+  <div class="schema">
+    Mitose → 2 cellules identiques (2n)  
+    Méiose → 4 cellules haploïdes (n)
+  </div>
+
+  <h2>IV. Transmission des caractères héréditaires</h2>
+  <h3>1. Lois de Mendel</h3>
+  <ul>
+    <li><strong>1ère loi :</strong> Uniformité des hybrides de première génération (F1).</li>
+    <li><strong>2e loi :</strong> Ségrégation indépendante des allèles à la F2.</li>
+    <li><strong>3e loi :</strong> Transmission indépendante des caractères.</li>
+  </ul>
+
+  <div class="exemple">
+    🌿 Exemple :  
+    Chez le pois, le croisement entre une plante à graines jaunes (AA) et une à graines vertes (aa) donne des F1 toutes jaunes (Aa).
+  </div>
+
+  <h2>V. Notion de mutation et variabilité génétique</h2>
+  <p>
+    Une <strong>mutation</strong> est une modification de la séquence de l’ADN.  
+    Elle peut être :
+  </p>
+  <ul>
+    <li><strong>Substitution :</strong> une base est remplacée par une autre.</li>
+    <li><strong>Délétion :</strong> perte d’un nucléotide.</li>
+    <li><strong>Insertion :</strong> ajout d’un nucléotide.</li>
+  </ul>
+
+  <div class="exemple">
+    💡 Exemple :  
+    Une mutation peut transformer un gène normal en gène responsable d’une maladie génétique (ex. drépanocytose).
+  </div>
+
+  <h2>VI. Génétique des populations</h2>
+  <p>
+    La génétique des populations étudie la répartition et l’évolution des fréquences des gènes dans une population au cours du temps.
+  </p>
+
+  <h3>1. Notion de fréquence allélique</h3>
+  <p>
+    Si un gène existe sous deux formes A et a, la fréquence de chaque allèle correspond à sa proportion dans la population totale.
+  </p>
+
+  </div>
+
+  <h3>3. Facteurs d’évolution</h3>
+  <ul>
+    <li>Mutations</li>
+    <li>Sélection naturelle</li>
+    <li>Dérive génétique</li>
+    <li>Flux migratoire</li>
+  </ul>
+
+  <h2>VII. Applications de la génétique</h2>
+  <ul>
+    <li>Diagnostic prénatal et dépistage des maladies héréditaires</li>
+    <li>Amélioration génétique en agriculture</li>
+    <li>Identification génétique (empreintes ADN)</li>
+    <li>Biotechnologies et OGM</li>
+  </ul>
+
+  <div class="exemple">
+    ⚗️ Exemple :  
+    Les OGM permettent d’améliorer la résistance des plantes aux maladies ou d’augmenter leur rendement.
+  </div>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Aide aux Élèves — Cours de Génétique 🧬</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Français - Aide aux Élèves</title>
+  <style>
+    body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; background: #f4f7fb; }
+    nav { background: #0077cc; padding: 15px 30px; display: flex; justify-content: space-between; }
+    nav .logo { color: white; font-size: 1.4rem; font-weight: bold; text-decoration: none; }
+    nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
+    nav ul li { margin-left: 20px; }
+    nav ul li a { color: white; text-decoration: none; font-weight: bold; }
+    nav ul li a:hover { text-decoration: underline; }
+
+    .content { padding: 80px 20px; max-width: 1000px; margin: auto; text-align: center; }
+    h1 { color: #0077cc; margin-bottom: 30px; }
+
+    .chapters { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .chapter-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .chapter-card:hover { transform: scale(1.05); }
+    .chapter-card h3 { color: #0077cc; margin-bottom: 10px; }
+    .chapter-card p { font-size: 0.9rem; color: #555; margin-bottom: 15px; }
+
+    .options { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+    .options a {
+      display: inline-block;
+      padding: 10px 15px;
+      background: #0077cc;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background 0.3s;
+    }
+    .options a:hover { background: #005fa3; }
+
+    footer { background: #0077cc; color: white; text-align: center; padding: 20px; margin-top: 50px; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html#accueil" class="logo">📚 Aide aux Élèves</a>
+    <ul>
+      <li><a href="index.html#accueil">Accueil</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+      <li><a href="index.html#inscription">Inscription</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- CONTENU -->
+  <div class="content">
+    <h1>📖 Français</h1>
+    <p>Sélectionne un chapitre puis choisis si tu veux voir le cours, t’exercer ou regarder des vidéos :</p>
+
+    <div class="chapters">
+      <!-- GRAMMAIRE -->
+      <div class="chapter-card">
+        <h3>📝 Grammaire</h3>
+        <p>Les règles essentielles de la langue française.</p>
+        <div class="options">
+          <a href="modele-cours.html">📖 Cours</a>
+          <a href="modele-cours.html">📝 Exercices</a>
+          <a href="video.html">🎥 Vidéos</a>
+        </div>
+      </div>
+
+      <!-- ORTHOGRAPHE -->
+      <div class="chapter-card">
+        <h3>✒️ DISSERTATION </h3>
+        <p>Methodologie</gaisons et dictées.</p>
+        <div class="options">
+          <a href="dissertation.html">📖 Cours</a>
+          <a href="modele-cours.html">📝 Exercices</a>
+          <a href="video.html">🎥 Vidéos</a>
+        </div>
+      </div>
+
+      <!-- LITTERATURE -->
+      <div class="chapter-card">
+        <h3>📚 Littérature</h3>
+        <p>Étude des grands auteurs et mouvements littéraires.</p>
+        <div class="options">
+          <a href="litterature.html">📖 Cours</a>
+          <a href="modele-cours.html">📝 Exercices</a>
+          <a href="video.html">🎥 Vidéos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Aide aux Élèves - Français</p>
+  </footer>
+
+</body>
+</html>

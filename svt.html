@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVT - Terminale | Aide aux Élèves</title>
+  <style>
+    :root {
+      --blue: #007bff;
+      --green: #28a745;
+      --dark: #0b2545;
+      --bg: #f5f7fb;
+      --card: #fff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--green), #1e7e34);
+      color: white;
+      text-align: center;
+      padding: 45px 15px;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      opacity: 0.9;
+      font-size: 1.1rem;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .chapter {
+      background: var(--card);
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      margin-bottom: 25px;
+      padding: 25px;
+      transition: transform 0.3s ease;
+    }
+
+    .chapter:hover {
+      transform: translateY(-5px);
+    }
+
+    .chapter h2 {
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+
+    .chapter ul {
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+
+    .btn-container {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      background: var(--blue);
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #0056b3;
+    }
+
+    footer {
+      text-align: center;
+      background: #1e7e34;
+      color: white;
+      padding: 15px;
+      margin-top: 40px;
+    }
+
+    .back-btn {
+      background: #0056b3;
+      padding: 10px 15px;
+      border-radius: 8px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .back-btn:hover {
+      background: #003d82;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🧬 Sciences de la Vie et de la Terre - Terminale</h1>
+    <p>Découvre tous les chapitres du programme SVT pour la Terminale au Burkina Faso 🇧🇫</p>
+    <a href="index.html" class="back-btn">⬅ Retour à l'accueil</a>
+  </header>
+
+  <main>
+    <!-- Chapitre 1 -->
+    <section class="chapter">
+      <h2>Chapitre 1 : La Cellule</h2>
+      <ul>
+        <li>Structure et fonction cellulaire</li>
+        <li>Métabolisme cellulaire</li>
+      </ul>
+      <div class="btn-container">
+        <a href="cellule.html" class="btn">📘 Cours</a>
+        <a href="cellule-exercice.html" class="btn">🧩 Exercices</a>
+        <a href="svt-chap1-videos.html" class="btn">🎥 Vidéos</a>
+      </div>
+    </section>
+
+    <!-- Chapitre 2 -->
+    <section class="chapter">
+      <h2>Chapitre 2 : La Reproduction</h2>
+      <ul>
+        <li>Reproduction humaine</li>
+        <li>Cycles de développement</li>
+      </ul>
+      <div class="btn-container">
+        <a href="reproduction.html" class="btn">📘 Cours</a>
+        <a href="reproduction-exercice.html" class="btn">🧩 Exercices</a>
+        <a href="svt-chap2-videos.html" class="btn">🎥 Vidéos</a>
+      </div>
+    </section>
+
+    <!-- Chapitre 3 -->
+    <section class="chapter">
+      <h2>Chapitre 3 : La Génétique</h2>
+      <ul>
+        <li>Mécanismes de l’hérédité</li>
+        <li>ADN et génome</li>
+        <li>Génétique des populations</li>
+      </ul>
+      <div class="btn-container">
+        <a href="genetique.html" class="btn">📘 Cours</a>
+        <a href="svt-chap3-exercices.html" class="btn">🧩 Exercices</a>
+        <a href="svt-chap3-videos.html" class="btn">🎥 Vidéos</a>
+      </div>
+    </section>
+
+    <!-- Chapitre 4 -->
+    <section class="chapter">
+      <h2>Chapitre 4 : Fonction de Relation</h2>
+      <ul>
+        <li>Système nerveux</li>
+        <li>Système endocrinien</li>
+        <li>Communication cellulaire</li>
+      </ul>
+      <div class="btn-container">
+        <a href="svt-chap4-cours.html" class="btn">📘 Cours</a>
+        <a href="svt-chap4-exercices.html" class="btn">🧩 Exercices</a>
+        <a href="svt-chap4-videos.html" class="btn">🎥 Vidéos</a>
+      </div>
+    </section>
+
+    <!-- Chapitre 5 -->
+    <section class="chapter">
+      <h2>Chapitre 5 : Unité Physiologique de l’Organisme</h2>
+      <ul>
+        <li>Homéostasie</li>
+        <li>Intégration des fonctions</li>
+        <li>Régulations physiologiques</li>
+      </ul>
+      <div class="btn-container">
+        <a href="svt-chap5-cours.html" class="btn">📘 Cours</a>
+        <a href="svt-chap5-exercices.html" class="btn">🧩 Exercices</a>
+        <a href="svt-chap5-videos.html" class="btn">🎥 Vidéos</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Aide aux Élèves — SVT Terminale 📘</p>
+  </footer>
+
+</body>
+</html>

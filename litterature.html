@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Œuvres au Programme de Français - Terminale Burkina Faso</title>
+    <style>
+        /* Reset et styles de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* En-tête */
+        header {
+            background: linear-gradient(135deg, #008751 0%, #EF2D2E 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,192C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            color: #008751;
+            background-color: #f0f0f0;
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.2rem;
+            color: #333;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #008751, #EF2D2E);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+
+        /* Grille des œuvres */
+        .oeuvres-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .oeuvre-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            border-left: 5px solid #008751;
+        }
+
+        .oeuvre-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .oeuvre-header {
+            background: linear-gradient(135deg, #008751 0%, #005732 100%);
+            color: white;
+            padding: 20px;
+        }
+
+        .oeuvre-title {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+
+        .oeuvre-author {
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .oeuvre-content {
+            padding: 25px;
+        }
+
+        .oeuvre-section {
+            margin-bottom: 20px;
+        }
+
+        .oeuvre-section h3 {
+            color: #008751;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 5px;
+        }
+
+        .themes-list {
+            list-style-type: none;
+        }
+
+        .themes-list li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .themes-list li::before {
+            content: '•';
+            color: #EF2D2E;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .pdf-btn {
+            display: inline-block;
+            background-color: #EF2D2E;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .pdf-btn:hover {
+            background-color: #d12525;
+            transform: translateY(-2px);
+        }
+
+        /* Pied de page */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+
+        .copyright {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .nav-links li {
+                margin: 5px 10px;
+            }
+            
+            .oeuvres-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête -->
+    <header>
+        <div class="container header-content">
+            <h1>Œuvres au Programme de Français</h1>
+            <p class="subtitle">Terminale - Burkina Faso</p>
+            <p class="subtitle">Résumés, thèmes et ressources pédagogiques</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <ul class="nav-links">
+                <li><a href="#oeuvres">Œuvres</a></li>
+                <li><a href="#ressources">Ressources</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Section Œuvres -->
+    <section id="oeuvres">
+        <div class="container">
+            <h2 class="section-title">Les Œuvres au Programme</h2>
+            <div class="oeuvres-grid">
+                
+                <!-- Œuvre 1 -->
+                <div class="oeuvre-card">
+                    <div class="oeuvre-header">
+                        <h2 class="oeuvre-title">Une si longue lettre</h2>
+                        <p class="oeuvre-author">Mariama Bâ</p>
+                    </div>
+                    <div class="oeuvre-content">
+                        <div class="oeuvre-section">
+                            <h3>Résumé</h3>
+                            <p>Roman épistolaire qui raconte l'histoire de Ramatoulaye qui écrit à son amie Aïssatou après la mort de son mari. Elle y relate ses souvenirs, ses souffrances et ses réflexions sur la condition féminine dans la société sénégalaise.</p>
+                        </div>
+                        <div class="oeuvre-section">
+                            <h3>Thèmes dominants</h3>
+                            <ul class="themes-list">
+                                <li>Condition féminine</li>
+                                <li>Polygamie</li>
+                                <li>Amitié féminine</li>
+                                <li>Traditions et modernité</li>
+                                <li>Deuil et résilience</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="pdf-btn">Télécharger le PDF</a>
+                    </div>
+                </div>
+
+                <!-- Œuvre 2 -->
+                <div class="oeuvre-card">
+                    <div class="oeuvre-header">
+                        <h2 class="oeuvre-title">L'Enfant noir</h2>
+                        <p class="oeuvre-author">Camara Laye</p>
+                    </div>
+                    <div class="oeuvre-content">
+                        <div class="oeuvre-section">
+                            <h3>Résumé</h3>
+                            <p>Autobiographie qui retrace l'enfance et l'adolescence de l'auteur en Guinée. Le récit évoque avec nostalgie les traditions, l'initiation et l'éducation traditionnelle, ainsi que le déchirement entre la culture africaine et l'attrait de l'Occident.</p>
+                        </div>
+                        <div class="oeuvre-section">
+                            <h3>Thèmes dominants</h3>
+                            <ul class="themes-list">
+                                <li>Initiation et tradition</li>
+                                <li>Nostalgie du pays natal</li>
+                                <li>Conflit des cultures</li>
+                                <li>Éducation traditionnelle</li>
+                                <li>Quête identitaire</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="pdf-btn">Télécharger le PDF</a>
+                    </div>
+                </div>
+
+                <!-- Œuvre 3 -->
+                <div class="oeuvre-card">
+                    <div class="oeuvre-header">
+                        <h2 class="oeuvre-title">Les Soleils des indépendances</h2>
+                        <p class="oeuvre-author">Ahmadou Kourouma</p>
+                    </div>
+                    <div class="oeuvre-content">
+                        <div class="oeuvre-section">
+                            <h3>Résumé</h3>
+                            <p>Roman qui critique les régimes post-coloniaux en Afrique à travers l'histoire de Fama, un prince malinké déchu. Le récit dépeint la désillusion après les indépendances et la corruption des nouveaux dirigeants.</p>
+                        </div>
+                        <div class="oeuvre-section">
+                            <h3>Thèmes dominants</h3>
+                            <ul class="themes-list">
+                                <li>Désillusion post-coloniale</li>
+                                <li>Critique des régimes africains</li>
+                                <li>Conflit tradition/modernité</li>
+                                <li>Déchéance sociale</li>
+                                <li>Corruption politique</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="pdf-btn">Télécharger le PDF</a>
+                    </div>
+                </div>
+
+                <!-- Œuvre 4 -->
+                <div class="oeuvre-card">
+                    <div class="oeuvre-header">
+                        <h2 class="oeuvre-title">Le Vieux Nègre et la médaille</h2>
+                        <p class="oeuvre-author">Ferdinand Oyono</p>
+                    </div>
+                    <div class="oeuvre-content">
+                        <div class="oeuvre-section">
+                            <h3>Résumé</h3>
+                            <p>Roman satirique qui raconte l'histoire de Meka, un vieil Africain à qui les colons français décernent une médaille pour ses services. La cérémonie tourne au fiasco et révèle l'hypocrisie du système colonial.</p>
+                        </div>
+                        <div class="oeuvre-section">
+                            <h3>Thèmes dominants</h3>
+                            <ul class="themes-list">
+                                <li>Satire du colonialisme</li>
+                                <li>Dénonciation de l'oppression</li>
+                                <li>Quête de dignité</li>
+                                <li>Hypocrisie coloniale</li>
+                                <li>Résistance passive</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="pdf-btn">Télécharger le PDF</a>
+                    </div>
+                </div>
+
+                <!-- Œuvre 5 -->
+                <div class="oeuvre-card">
+                    <div class="oeuvre-header">
+                        <h2 class="oeuvre-title">La Tragédie du roi Christophe</h2>
+                        <p class="oeuvre-author">Aimé Césaire</p>
+                    </div>
+                    <div class="oeuvre-content">
+                        <div class="oeuvre-section">
+                            <h3>Résumé</h3>
+                            <p>Pièce de théâtre qui retrace le règne de Henri Christophe, roi d'Haïti après l'indépendance. La tragédie explore les défis de la construction nationale et les limites du pouvoir absolu.</p>
+                        </div>
+                        <div class="oeuvre-section">
+                            <h3>Thèmes dominants</h3>
+                            <ul class="themes-list">
+                                <li>Pouvoir et tyrannie</li>
+                                <li>Construction nationale</li>
+                                <li>Décolonisation</li>
+                                <li>Rêve et désillusion</li>
+                                <li>Dignité africaine</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="pdf-btn">Télécharger le PDF</a>
+                    </div>
+                </div>
+
+                <!-- Œuvre 6 -->
+                <div class="oeuvre-card">
+                    <div class="oeuvre-header">
+                        <h2 class="oeuvre-title">Le Monde s'effondre</h2>
+                        <p class="oeuvre-author">Chinua Achebe</p>
+                    </div>
+                    <div class="oeuvre-content">
+                        <div class="oeuvre-section">
+                            <h3>Résumé</h3>
+                            <p>Roman qui décrit la vie traditionnelle igbo avant l'arrivée des colons britanniques et le choc culturel qui s'ensuit. Le héros, Okonkwo, voit son monde s'effondrer avec la colonisation.</p>
+                        </div>
+                        <div class="oeuvre-section">
+                            <h3>Thèmes dominants</h3>
+                            <ul class="themes-list">
+                                <li>Choc des cultures</li>
+                                <li>Colonisation et résistance</li>
+                                <li>Traditions africaines</li>
+                                <li>Identité culturelle</li>
+                                <li>Déstabilisation sociale</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="pdf-btn">Télécharger le PDF</a>
+                    </div>
+                </div>
+
+                <!-- Œuvre 7 -->
+                <div class="oeuvre-card">
+                    <div class="oeuvre-header">
+                        <h2 class="oeuvre-title">Le Parachutage</h2>
+                        <p class="oeuvre-author">Norbert Zongo</p>
+                    </div>
+                    <div class="oeuvre-content">
+                        <div class="oeuvre-section">
+                            <h3>Résumé</h3>
+                            <p>Roman politique qui dénonce la dictature et la corruption en Afrique à travers l'histoire d'un journaliste qui enquête sur un assassinat politique. Œuvre engagée pour la démocratie.</p>
+                        </div>
+                        <div class="oeuvre-section">
+                            <h3>Thèmes dominants</h3>
+                            <ul class="themes-list">
+                                <li>Dénonciation de la dictature</li>
+                                <li>Liberté de la presse</li>
+                                <li>Justice sociale</li>
+                                <li>Engagement politique</li>
+                                <li>Corruption</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="pdf-btn">Télécharger le PDF</a>
+                    </div>
+                </div>
+
+                <!-- Œuvre 8 -->
+                <div class="oeuvre-card">
+                    <div class="oeuvre-header">
+                        <h2 class="oeuvre-title">L'Aventure ambiguë</h2>
+                        <p class="oeuvre-author">Cheikh Hamidou Kane</p>
+                    </div>
+                    <div class="oeuvre-content">
+                        <div class="oeuvre-section">
+                            <h3>Résumé</h3>
+                            <p>Roman philosophique qui suit le parcours de Samba Diallo, tiraillé entre l'éducation coranique traditionnelle et la culture occidentale. Une réflexion profonde sur l'identité culturelle.</p>
+                        </div>
+                        <div class="oeuvre-section">
+                            <h3>Thèmes dominants</h3>
+                            <ul class="themes-list">
+                                <li>Conflit culturel</li>
+                                <li>Éducation et valeurs</li>
+                                <li>Quête spirituelle</li>
+                                <li>Déracinement</li>
+                                <li>Dialogue des cultures</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="pdf-btn">Télécharger le PDF</a>
+                    </div>
+                </div>
+
+                <!-- Œuvre 9 -->
+                <div class="oeuvre-card">
+                    <div class="oeuvre-header">
+                        <h2 class="oeuvre-title">Du lait pour une tombe</h2>
+                        <p class="oeuvre-author">Œuvre au programme</p>
+                    </div>
+                    <div class="oeuvre-content">
+                        <div class="oeuvre-section">
+                            <h3>Résumé</h3>
+                            <p>Cette œuvre aborde des thématiques importantes de la littérature africaine contemporaine. Elle explore les relations humaines et les défis sociaux dans un contexte moderne.</p>
+                        </div>
+                        <div class="oeuvre-section">
+                            <h3>Thèmes dominants</h3>
+                            <ul class="themes-list">
+                                <li>Relations familiales</li>
+                                <li>Défis sociaux contemporains</li>
+                                <li>Mémoire et héritage</li>
+                                <li>Quête de sens</li>
+                                <li>Réalités africaines modernes</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="pdf-btn">Télécharger le PDF</a>
+                    </div>
+                </div>
+
+                <!-- Œuvre 10 -->
+                <div class="oeuvre-card">
+                    <div class="oeuvre-header">
+                        <h2 class="oeuvre-title">Les Fleurs du mal</h2>
+                        <p class="oeuvre-author">Charles Baudelaire</p>
+                    </div>
+                    <div class="oeuvre-content">
+                        <div class="oeuvre-section">
+                            <h3>Résumé</h3>
+                            <p>Recueil poétique majeur qui explore la beauté dans la laideur, le spleen et l'idéal. Baudelaire y exprime la dualité de la condition humaine entre ennui et aspiration à l'infini.</p>
+                        </div>
+                        <div class="oeuvre-section">
+                            <h3>Thèmes dominants</h3>
+                            <ul class="themes-list">
+                                <li>Spleen et idéal</li>
+                                <li>Beauté du mal</li>
+                                <li>Révolte contre la morale</li>
+                                <li>Urbanité et modernité</li>
+                                <li>Dualité humaine</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="pdf-btn">Télécharger le PDF</a>
+                    </div>
+                </div>
+
+                <!-- Œuvre 11 -->
+                <div class="oeuvre-card">
+                    <div class="oeuvre-header">
+                        <h2 class="oeuvre-title">Cahier d'un retour au pays natal</h2>
+                        <p class="oeuvre-author">Aimé Césaire</p>
+                    </div>
+                    <div class="oeuvre-content">
+                        <div class="oeuvre-section">
+                            <h3>Résumé</h3>
+                            <p>Long poème fondateur de la négritude où Césaire exprime sa révolte contre l'oppression coloniale et affirme la dignité et la beauté de la culture noire. Un chant de libération et d'espoir.</p>
+                        </div>
+                        <div class="oeuvre-section">
+                            <h3>Thèmes dominants</h3>
+                            <ul class="themes-list">
+                                <li>Négritude et identité noire</li>
+                                <li>Révolte anticoloniale</li>
+                                <li>Dignité africaine</li>
+                                <li>Retour aux sources</li>
+                                <li>Libération culturelle</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="pdf-btn">Télécharger le PDF</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Ressources -->
+    <section id="ressources" style="background-color: #f0f4f8;">
+        <div class="container">
+            <h2 class="section-title">Ressources Pédagogiques</h2>
+            <div class="oeuvre-content" style="max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <h3 style="color: #008751; margin-bottom: 20px;">Guide d'utilisation</h3>
+                <p style="margin-bottom: 15px;">Cette plateforme rassemble les 11 œuvres au programme de français en Terminale au Burkina Faso.</p>
+                
+                <div style="margin-bottom: 20px;">
+                    <h4 style="color: #EF2D2E; margin-bottom: 10px;">Pour chaque œuvre vous trouverez :</h4>
+                    <ul class="themes-list">
+                        <li>Un résumé complet de l'œuvre</li>
+                        <li>Les thèmes dominants analysés</li>
+                        <li>Une fiche PDF téléchargeable</li>
+                        <li>Des éléments pour la dissertation</li>
+                    </ul>
+                </div>
+                
+                <p style="font-style: italic; color: #666;">Cette ressource est conçue pour accompagner les élèves dans leur préparation au baccalauréat.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+        <div class="container">
+            <p>Ressources pédagogiques pour les élèves de Terminale - Burkina Faso</p>
+            <div class="copyright">
+                &copy; 2025 Œuvres au Programme de Français. Tous droits réservés.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Statistiques descriptives — Terminale</title>
+  <style>
+    :root{
+      --blue: #007BFF;
+      --dark: #0b2545;
+      --bg: #f5f7fb;
+      --card: #fff;
+      --muted: #6b7280;
+      --success: #28a745;
+      --accent: #ff9800;
+      --glass: rgba(255,255,255,0.85);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;font-family:"Segoe UI",Roboto,Arial,sans-serif;
+      background:var(--bg);color:var(--dark);-webkit-font-smoothing:antialiased;
+      line-height:1.6;
+    }
+    header{
+      background: linear-gradient(135deg,var(--blue),#0056b3);
+      color:#fff;text-align:center;padding:42px 18px;
+    }
+    header h1{margin:0;font-size:1.9rem}
+    header p{margin:8px 0 0;opacity:.95}
+    .container{max-width:1100px;margin:28px auto;padding:18px}
+    .card{background:var(--card);border-radius:10px;padding:16px;margin-bottom:18px;
+          box-shadow:0 6px 20px rgba(15,23,42,0.06)}
+    h2{color:var(--blue);margin:6px 0 12px;border-left:6px solid var(--blue);padding-left:12px}
+    h3{color:var(--dark);margin:12px 0}
+    p,li{font-size:1rem;color:var(--dark)}
+    .row{display:flex;gap:18px}
+    .col{flex:1}
+    .muted{color:var(--muted)}
+    .controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+    input[type="text"], textarea, select{
+      padding:8px;border:1px solid #ddd;border-radius:6px;width:100%;
+      font-size:0.95rem;
+    }
+    textarea{min-height:70px;resize:vertical}
+    .btn{display:inline-block;padding:8px 12px;background:var(--blue);color:#fff;border-radius:8px;text-decoration:none;border:none;cursor:pointer}
+    .btn.secondary{background:#6c757d}
+    .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+    .stat{
+      background:linear-gradient(180deg,#fff,#fbfdff);padding:12px;border-radius:8px;border:1px solid #eef4ff;
+      text-align:center;
+    }
+    .small{font-size:0.9rem;color:var(--muted)}
+    svg{width:100%;height:auto}
+    .legend{display:flex;gap:8px;align-items:center;font-size:0.95rem;margin-top:8px}
+    .legend span{display:inline-flex;align-items:center;gap:6px}
+    .swatch{width:14px;height:12px;border-radius:3px;display:inline-block}
+    .example{background:#eefaf1;border-left:4px solid var(--success);padding:10px;border-radius:6px}
+    .exercise{background:#fff4e5;border-left:4px solid var(--accent);padding:10px;border-radius:6px}
+    footer{text-align:center;padding:14px 10px;color:#fff;background:#0056b3;margin-top:18px}
+    @media (max-width:900px){.row{flex-direction:column}}
+    pre{background:#0b1220;color:#dbeafe;padding:10px;border-radius:6px;overflow:auto}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📊 Statistiques descriptives — Terminale</h1>
+    <p>Cours complet avec graphiques interactifs : moyenne, médiane, variance, boîte à moustaches, histogramme, nuage de points</p>
+  </header>
+
+  <main class="container">
+
+    <!-- Introduction -->
+    <section class="card">
+      <h2>Objectifs du cours</h2>
+      <p>Ce module couvre les notions fondamentales des statistiques descriptives :</p>
+      <ul>
+        <li>Organisation d'une série, effectifs et fréquences</li>
+        <li>Mesures de tendance centrale : moyenne, médiane, mode</li>
+        <li>Mesures de dispersion : étendue, variance, écart-type, quartiles</li>
+        <li>Visualisations : histogramme, boîte à moustaches (boxplot), nuage de points</li>
+      </ul>
+      <p class="small muted">Astuce : modifie les données dans la zone ci-dessous puis clique sur <strong>Mettre à jour</strong> pour recalculer et redessiner tous les graphiques.</p>
+    </section>
+
+    <!-- Data input and controls -->
+    <section class="card">
+      <h2>Données & contrôles</h2>
+      <div class="row">
+        <div class="col">
+          <label class="small">Données (séparées par des virgules)</label>
+          <textarea id="dataInput">12, 15, 14, 13, 18, 20, 20, 22, 17, 15, 16, 19, 21, 14, 13</textarea>
+          <div style="margin-top:10px" class="controls">
+            <button class="btn" id="updateBtn">Mettre à jour</button>
+            <button class="btn secondary" id="resetBtn">Charger exemple</button>
+            <label style="display:inline-flex;gap:6px;align-items:center">
+              Bins :
+              <select id="bins" style="width:90px;padding:6px;border-radius:6px;border:1px solid #ddd">
+                <option>5</option><option>6</option><option selected>7</option><option>8</option><option>10</option>
+              </select>
+            </label>
+            <button class="btn secondary" id="downloadCsv">Télécharger CSV</button>
+          </div>
+          <p class="small muted">Entrée acceptée : nombres entiers ou décimaux, séparés par virgules ou espaces.</p>
+        </div>
+
+        <div class="col">
+          <div class="card" style="padding:12px;margin-bottom:12px">
+            <h3>Statistiques clés</h3>
+            <div class="stats-grid" id="statsGrid">
+              <!-- stats inserted by JS -->
+            </div>
+          </div>
+
+          <div class="card" style="padding:12px">
+            <h3>Résumé</h3>
+            <p id="summary" class="small muted">Aucune donnée chargée.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Graphiques -->
+    <section class="card">
+      <h2>Visualisations</h2>
+
+      <div class="row">
+        <div class="col" style="min-width:300px">
+          <h3>Histogramme</h3>
+          <div id="histogramWrapper" class="card" style="padding:8px">
+            <svg id="histogram" viewBox="0 0 800 260" preserveAspectRatio="xMidYMid meet"></svg>
+            <div class="legend">
+              <span><i class="swatch" style="background:#007BFF"></i> Effectif</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col" style="min-width:260px">
+          <h3>Boîte à moustaches (Boxplot)</h3>
+          <div id="boxWrapper" class="card" style="padding:8px">
+            <svg id="boxplot" viewBox="0 0 800 120" preserveAspectRatio="xMidYMid meet"></svg>
+            <div class="legend">
+              <span><i class="swatch" style="background:#28a745"></i> Médiane & Quartiles</span>
+            </div>
+          </div>
+
+          <h3 style="margin-top:14px">Nuage de points</h3>
+          <div id="scatterWrapper" class="card" style="padding:8px">
+            <svg id="scatter" viewBox="0 0 800 300" preserveAspectRatio="xMidYMid meet"></svg>
+            <div class="legend">
+              <span><i class="swatch" style="background:#ff9800"></i> Points</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Explanations -->
+    <section class="card">
+      <h2>Rappels et formules</h2>
+      <h3>Moyenne arithmétique</h3>
+      <p class="small">Pour une série de valeurs x₁,...,xₙ :</p>
+      <p class="math">μ = (1/n) ∑<sub>i=1</sub><sup>n</sup> xᵢ</p>
+
+      <h3>Médiane</h3>
+      <p class="small">Valeur qui divise la série ordonnée en deux parties de même effectif. Si n pair, médiane = moyenne des deux valeurs centrales.</p>
+
+      <h3>Variance (empirique) et écart-type</h3>
+      <p class="small">On définit la variance (estimation populationnelle) :</p>
+      <p class="math">Var = (1/n) ∑ (xᵢ − μ)²</p>
+      <p class="small">Écart-type σ = √Var</p>
+
+      <h3>Quartiles</h3>
+      <p class="small">Q1, Q2 (médiane), Q3 : valeurs qui partagent la série ordonnée en 4 parties égales.</p>
+    </section>
+
+    <!-- Exercises -->
+    <section class="card">
+      <h2>Exercices — pratique</h2>
+
+      <div class="exercise">
+        <b>Exercice 1</b> : Pour la série suivante (ex : notes d'une classe) : <br>
+        <code>12, 15, 14, 13, 18, 20, 20, 22, 17, 15, 16, 19, 21, 14, 13</code><br>
+        Calculer : effectif total, moyenne, médiane, variance et écart-type. Représenter par un histogramme et une boîte à moustaches.
+        <div class="sol small" id="sol1">Solution automatique : utiliser le bouton Mettre à jour ci-dessous pour voir les résultats.</div>
+      </div>
+
+      <div class="exercise">
+        <b>Exercice 2</b> : On a la série de valeurs : 2,2,3,4,8,9,10,12,12,15. Calculer Q1, Q2, Q3 et détecter s'il y a des valeurs aberrantes (règle IQR).
+        <div class="sol small">Indice : IQR = Q3 − Q1 ; seuils : Q1 − 1.5·IQR et Q3 + 1.5·IQR.</div>
+      </div>
+
+      <div style="margin-top:12px">
+        <button class="btn" id="autoSolve">Calculer les réponses de l'ex.1</button>
+      </div>
+    </section>
+
+    <!-- Interpretation and advices -->
+    <section class="card">
+      <h2>Interprétation & bonnes pratiques</h2>
+      <ul>
+        <li>La moyenne est sensible aux valeurs extrêmes ; la médiane est plus robuste.</li>
+        <li>Utilise l'écart-type pour mesurer la dispersion autour de la moyenne.</li>
+        <li>La boîte à moustaches montre la médiane, Q1, Q3 et détecte les valeurs extrêmes (outliers).</li>
+      </ul>
+      <p class="small muted">Pour le bac : savoir calculer à la main sur petites séries, mais aussi interpréter rapidement des graphiques.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Aide aux Élèves — Statistiques descriptives</p>
+  </footer>
+
+  <script>
+  /*************************************************************************
+   * Fonctions utilitaires pour calculs statistiques et dessin SVG
+   *************************************************************************/
+  function parseData(text){
+    // accepte virgules, espaces, retours
+    const tokens = text.trim().replace(/;/g,',').split(/[,\\s]+/).filter(s=>s.length);
+    const arr = tokens.map(s => Number(s.replace(',','.'))).filter(v => !isNaN(v));
+    return arr;
+  }
+
+  function mean(arr){
+    if (!arr.length) return NaN;
+    return arr.reduce((a,b)=>a+b,0)/arr.length;
+  }
+  function variance(arr){
+    if (!arr.length) return NaN;
+    const m = mean(arr);
+    return arr.reduce((s,x)=>s+Math.pow(x-m,2),0)/arr.length; // population variance
+  }
+  function std(arr){ return Math.sqrt(variance(arr)); }
+  function median(sorted){
+    const n = sorted.length;
+    if (n===0) return NaN;
+    if (n%2===1) return sorted[(n-1)/2];
+    return (sorted[n/2 -1] + sorted[n/2]) / 2;
+  }
+  function quartiles(sorted){
+    const n = sorted.length;
+    if (n===0) return {q1:NaN,q2:NaN,q3:NaN};
+    const q2 = median(sorted);
+    let lower, upper;
+    if (n%2===0){
+      lower = sorted.slice(0,n/2);
+      upper = sorted.slice(n/2);
+    } else {
+      lower = sorted.slice(0,(n-1)/2);
+      upper = sorted.slice((n+1)/2);
+    }
+    return {q1: median(lower), q2: q2, q3: median(upper)};
+  }
+
+  function histogramData(sorted, bins){
+    const n = sorted.length;
+    if (n===0) return [];
+    const min = sorted[0], max = sorted[n-1];
+    const range = max - min || 1;
+    const binWidth = range / bins;
+    const counts = new Array(bins).fill(0);
+    for (let v of sorted){
+      let idx = Math.floor((v - min) / binWidth);
+      if (idx === bins) idx = bins-1;
+      counts[idx]++;
+    }
+    const binsArr = [];
+    for (let i=0;i<bins;i++){
+      const a = min + i*binWidth;
+      const b = a + binWidth;
+      binsArr.push({x0:a, x1:b, count:counts[i]});
+    }
+    return binsArr;
+  }
+
+  /*************************************************************************
+   * Dessins SVG
+   *************************************************************************/
+  function drawHistogram(svgId, binsArr){
+    const svg = document.getElementById(svgId);
+    svg.innerHTML = '';
+    const W = 800, H = 260, pad = 40;
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    const maxCount = Math.max(1, ...binsArr.map(b=>b.count));
+    const barW = (W - 2*pad) / binsArr.length;
+    // axis
+    const xmlns = "http://www.w3.org/2000/svg";
+    const g = document.createElementNS(xmlns,'g');
+    // bars
+    binsArr.forEach((b,i)=>{
+      const x = pad + i*barW + 4;
+      const h = ((H - 2*pad) * b.count) / maxCount;
+      const y = H - pad - h;
+      const rect = document.createElementNS(xmlns,'rect');
+      rect.setAttribute('x', x);
+      rect.setAttribute('y', y);
+      rect.setAttribute('width', Math.max(0, barW-8));
+      rect.setAttribute('height', h);
+      rect.setAttribute('fill', '#007BFF');
+      rect.setAttribute('opacity', 0.85);
+      g.appendChild(rect);
+      // count label
+      const t = document.createElementNS(xmlns,'text');
+      t.setAttribute('x', x + (barW-8)/2);
+      t.setAttribute('y', y - 6);
+      t.setAttribute('fill','#333'); t.setAttribute('font-size',12); t.setAttribute('text-anchor','middle');
+      t.textContent = b.count>0? b.count : '';
+      g.appendChild(t);
+      // x label
+      const xl = document.createElementNS(xmlns,'text');
+      xl.setAttribute('x', x + (barW-8)/2);
+      xl.setAttribute('y', H - pad + 14);
+      xl.setAttribute('fill','#666'); xl.setAttribute('font-size',11); xl.setAttribute('text-anchor','middle');
+      xl.textContent = `${Number(b.x0.toFixed(1))}`;
+      g.appendChild(xl);
+    });
+    svg.appendChild(g);
+    // axis lines
+    const axis = document.createElementNS(xmlns,'line');
+    axis.setAttribute('x1', pad); axis.setAttribute('y1', H-pad); axis.setAttribute('x2', W-pad); axis.setAttribute('y2', H-pad);
+    axis.setAttribute('stroke','#999');svg.appendChild(axis);
+    // title
+    const title = document.createElementNS(xmlns,'text');
+    title.setAttribute('x', W/2); title.setAttribute('y', 18); title.setAttribute('text-anchor','middle'); title.setAttribute('font-size',14);
+    title.setAttribute('fill','#333'); title.textContent = 'Histogramme (effectifs)'; svg.appendChild(title);
+  }
+
+  function drawBoxplot(svgId, sorted, qObj){
+    const svg = document.getElementById(svgId);
+    svg.innerHTML = '';
+    const W = 800, H = 120, pad = 60;
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    const min = sorted[0], max = sorted[sorted.length-1];
+    const xScale = v => {
+      if (min === max) return W/2;
+      return pad + (v - min) * (W - 2*pad) / (max - min);
+    };
+    const xmlns = "http://www.w3.org/2000/svg";
+    // whiskers
+    const g = document.createElementNS(xmlns,'g');
+    const q1 = qObj.q1, q2 = qObj.q2, q3 = qObj.q3;
+    // draw line from min to max
+    const line = document.createElementNS(xmlns,'line');
+    line.setAttribute('x1', xScale(min)); line.setAttribute('y1', H/2);
+    line.setAttribute('x2', xScale(max)); line.setAttribute('y2', H/2);
+    line.setAttribute('stroke','#aaa'); line.setAttribute('stroke-width',2);
+    g.appendChild(line);
+    // box Q1-Q3
+    const box = document.createElementNS(xmlns,'rect');
+    box.setAttribute('x', xScale(q1)); box.setAttribute('y', H/2 - 20);
+    box.setAttribute('width', Math.max(2, xScale(q3) - xScale(q1))); box.setAttribute('height', 40);
+    box.setAttribute('fill','#eafaf1'); box.setAttribute('stroke','#28a745');
+    g.appendChild(box);
+    // median
+    const medLine = document.createElementNS(xmlns,'line');
+    medLine.setAttribute('x1', xScale(q2)); medLine.setAttribute('y1', H/2 - 20);
+    medLine.setAttribute('x2', xScale(q2)); medLine.setAttribute('y2', H/2 + 20);
+    medLine.setAttribute('stroke','#2b6cb0'); medLine.setAttribute('stroke-width',3);
+    g.appendChild(medLine);
+    // min tick
+    const minTick = document.createElementNS(xmlns,'line');
+    minTick.setAttribute('x1', xScale(min)); minTick.setAttribute('y1', H/2 - 8);
+    minTick.setAttribute('x2', xScale(min)); minTick.setAttribute('y2', H/2 + 8);
+    minTick.setAttribute('stroke','#666');
+    g.appendChild(minTick);
+    // max tick
+    const maxTick = document.createElementNS(xmlns,'line');
+    maxTick.setAttribute('x1', xScale(max)); maxTick.setAttribute('y1', H/2 - 8);
+    maxTick.setAttribute('x2', xScale(max)); maxTick.setAttribute('y2', H/2 + 8);
+    maxTick.setAttribute('stroke','#666');
+    g.appendChild(maxTick);
+    // labels
+    const labMin = document.createElementNS(xmlns,'text');
+    labMin.setAttribute('x', xScale(min)); labMin.setAttribute('y', H - 6); labMin.setAttribute('font-size',11); labMin.setAttribute('text-anchor','middle'); labMin.setAttribute('fill','#444');
+    labMin.textContent = Number(min.toFixed(2));
+    g.appendChild(labMin);
+    const labMax = document.createElementNS(xmlns,'text');
+    labMax.setAttribute('x', xScale(max)); labMax.setAttribute('y', H - 6); labMax.setAttribute('font-size',11); labMax.setAttribute('text-anchor','middle'); labMax.setAttribute('fill','#444');
+    labMax.textContent = Number(max.toFixed(2));
+    g.appendChild(labMax);
+    svg.appendChild(g);
+    // title
+    const title = document.createElementNS(xmlns,'text');
+    title.setAttribute('x', W/2); title.setAttribute('y', 16); title.setAttribute('text-anchor','middle'); title.setAttribute('font-size',14);
+    title.setAttribute('fill','#333'); title.textContent = 'Boîte à moustaches (boxplot)';
+    svg.appendChild(title);
+  }
+
+  function drawScatter(svgId, arr){
+    const svg = document.getElementById(svgId);
+    svg.innerHTML = '';
+    const W = 800, H = 300, pad = 50;
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    if (arr.length === 0) return;
+    const n = arr.length;
+    const xs = Array.from({length:n}, (_,i)=>i+1);
+    const ys = arr;
+    const xmin = 1, xmax = n;
+    const ymin = Math.min(...ys), ymax = Math.max(...ys);
+    const xScale = x => pad + (x - xmin) * (W - 2*pad) / (xmax - xmin);
+    const yScale = y => H - pad - (y - ymin) * (H - 2*pad) / (ymax - ymin || 1);
+    const xmlns = "http://www.w3.org/2000/svg";
+    const g = document.createElementNS(xmlns,'g');
+    // axes
+    const ax = document.createElementNS(xmlns,'line');
+    ax.setAttribute('x1', pad); ax.setAttribute('y1', H - pad); ax.setAttribute('x2', W - pad); ax.setAttribute('y2', H - pad); ax.setAttribute('stroke','#999');
+    const ay = document.createElementNS(xmlns,'line');
+    ay.setAttribute('x1', pad); ay.setAttribute('y1', pad); ay.setAttribute('x2', pad); ay.setAttribute('y2', H - pad); ay.setAttribute('stroke','#999');
+    g.appendChild(ax); g.appendChild(ay);
+    // points
+    ys.forEach((y,i)=>{
+      const cx = xScale(i+1);
+      const cy = yScale(y);
+      const c = document.createElementNS(xmlns,'circle');
+      c.setAttribute('cx', cx); c.setAttribute('cy', cy); c.setAttribute('r', 5);
+      c.setAttribute('fill', '#ff9800'); c.setAttribute('opacity', 0.9);
+      g.appendChild(c);
+    });
+    // linear regression line (least squares)
+    const lr = linearRegression(xs, ys);
+    if (lr){
+      const x1 = xmin, x2 = xmax;
+      const y1 = lr.a + lr.b * x1, y2 = lr.a + lr.b * x2;
+      const l = document.createElementNS(xmlns,'line');
+      l.setAttribute('x1', xScale(x1)); l.setAttribute('y1', yScale(y1));
+      l.setAttribute('x2', xScale(x2)); l.setAttribute('y2', yScale(y2));
+      l.setAttribute('stroke', '#2b6cb0'); l.setAttribute('stroke-width',2); l.setAttribute('opacity',0.9);
+      g.appendChild(l);
+      // show equation
+      const eq = document.createElementNS(xmlns,'text'); eq.setAttribute('x', W - pad); eq.setAttribute('y', pad + 12);
+      eq.setAttribute('text-anchor','end'); eq.setAttribute('font-size',12); eq.setAttribute('fill','#333');
+      eq.textContent = `y ≈ ${lr.a.toFixed(2)} + ${lr.b.toFixed(2)}x`;
+      g.appendChild(eq);
+    }
+    svg.appendChild(g);
+    // title
+    const title = document.createElementNS(xmlns,'text');
+    title.setAttribute('x', W/2); title.setAttribute('y', 16); title.setAttribute('text-anchor','middle'); title.setAttribute('font-size',14);
+    title.setAttribute('fill','#333'); title.textContent = 'Nuage de points (index vs valeur)';
+    svg.appendChild(title);
+  }
+
+  // Compute linear regression coefficients (a + b x)
+  function linearRegression(xs, ys){
+    const n = xs.length;
+    if (n===0) return null;
+    const mx = mean(xs), my = mean(ys);
+    let num = 0, den = 0;
+    for (let i=0;i<n;i++){ num += (xs[i]-mx)*(ys[i]-my); den += (xs[i]-mx)*(xs[i]-mx); }
+    const b = den === 0 ? 0 : num/den;
+    const a = my - b*mx;
+    return {a,b};
+  }
+
+  /*************************************************************************
+   * Interaction et rafraîchissement
+   *************************************************************************/
+  function niceNumber(v){
+    if (Number.isInteger(v)) return v;
+    return Number(v.toFixed(3));
+  }
+
+  function computeAndRender(){
+    const raw = document.getElementById('dataInput').value;
+    const arr = parseData(raw);
+    const sorted = arr.slice().sort((a,b)=>a-b);
+    const n = arr.length;
+    const statsGrid = document.getElementById('statsGrid');
+    statsGrid.innerHTML = '';
+    if (n === 0){
+      document.getElementById('summary').textContent = 'Aucune donnée valide.';
+      drawHistogram('histogram', []);
+      drawBoxplot('boxplot', [], {q1:0,q2:0,q3:0});
+      drawScatter('scatter', []);
+      return;
+    }
+    const mu = mean(arr); const med = median(sorted);
+    const varr = variance(arr); const sd = Math.sqrt(varr);
+    const {q1,q2,q3} = quartiles(sorted);
+    const min = sorted[0], max = sorted[sorted.length-1];
+    const range = max - min;
+    const bins = parseInt(document.getElementById('bins').value || '7',10);
+    // fill stats grid
+    const stats = [
+      ['n', n],
+      ['Moyenne', niceNumber(mu)],
+      ['Médiane', niceNumber(med)],
+      ['Variance', niceNumber(varr)],
+      ['Écart-type', niceNumber(sd)],
+      ['Min', niceNumber(min)],
+      ['Q1', niceNumber(q1)],
+      ['Q3', niceNumber(q3)],
+      ['Max', niceNumber(max)],
+      ['Étendue', niceNumber(range)]
+    ];
+    for (let [k,v] of stats){
+      const d = document.createElement('div'); d.className = 'stat';
+      d.innerHTML = `<div class="small">${k}</div><div style="font-weight:700;font-size:1.1rem">${v}</div>`;
+      statsGrid.appendChild(d);
+    }
+    // summary
+    document.getElementById('summary').textContent = `n=${n}, moyenne≈${niceNumber(mu)}, médiane=${niceNumber(med)}, écart-type≈${niceNumber(sd)}.`;
+    // histogram data and draw
+    const binsArr = histogramData(sorted, bins);
+    drawHistogram('histogram', binsArr);
+    // boxplot
+    drawBoxplot('boxplot', sorted, {q1,q2:med,q3});
+    // scatter
+    drawScatter('scatter', arr);
+
+    // store last for exercises
+    window.__lastData = {arr,sorted,mu,med,varr,sd,q1,q2:q2,q3,min,max};
+  }
+
+  // download CSV
+  function downloadCsv(){
+    const raw = document.getElementById('dataInput').value;
+    const arr = parseData(raw);
+    const csv = arr.join(',');
+    const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a'); a.href = url; a.download = 'data.csv'; document.body.appendChild(a); a.click(); a.remove();
+    URL.revokeObjectURL(url);
+  }
+
+  // load example
+  function loadExample(){
+    document.getElementById('dataInput').value = '12, 15, 14, 13, 18, 20, 20, 22, 17, 15, 16, 19, 21, 14, 13';
+    computeAndRender();
+  }
+
+  // auto-solve exercise 1
+  function autoSolveEx1(){
+    if (!window.__lastData){ alert('Clique sur Mettre à jour pour charger les données puis réessaie.'); return;}
+    const d = window.__lastData;
+    const sol = `Effectif n = ${d.arr.length}
+Moyenne ≈ ${niceNumber(d.mu || d.arr.reduce((a,b)=>a+b,0)/d.arr.length)}
+Médiane = ${niceNumber(d.med || d.sorted[Math.floor(d.sorted.length/2)])}
+Variance ≈ ${niceNumber(d.varr)} ; Écart-type ≈ ${niceNumber(d.sd)}`;
+    alert(sol);
+  }
+
+  // Event listeners
+  document.getElementById('updateBtn').addEventListener('click', computeAndRender);
+  document.getElementById('resetBtn').addEventListener('click', loadExample);
+  document.getElementById('downloadCsv').addEventListener('click', downloadCsv);
+  document.getElementById('autoSolve').addEventListener('click', function(){
+    // compute if not already
+    computeAndRender();
+    const d = window.__lastData;
+    if (!d) { alert('Aucune donnée'); return; }
+    // provide a detailed modal style output (simple alert for now)
+    let text = `Résultats (exercice 1) :
+n = ${d.arr.length}
+Moyenne ≈ ${niceNumber(d.mu)}
+Médiane = ${niceNumber(d.med)}
+Variance = ${niceNumber(d.varr)}
+Écart-type = ${niceNumber(d.sd)}
+Min = ${niceNumber(d.min)}, Q1 = ${niceNumber(d.q1)}, Q3 = ${niceNumber(d.q3)}, Max = ${niceNumber(d.max)}
+Étendue = ${niceNumber(d.max - d.min)}
+`;
+    alert(text);
+  });
+
+  // helper: compute quartiles wrapper to provide q2 name
+  function quartiles(sorted){
+    const q2 = median(sorted);
+    let lower, upper;
+    const n = sorted.length;
+    if (n%2===0){
+      lower = sorted.slice(0,n/2);
+      upper = sorted.slice(n/2);
+    } else {
+      lower = sorted.slice(0,(n-1)/2);
+      upper = sorted.slice((n+1)/2);
+    }
+    return {q1: median(lower), q2: q2, q3: median(upper)};
+  }
+
+  // init
+  loadExample();
+  </script>
+</body>
+</html>

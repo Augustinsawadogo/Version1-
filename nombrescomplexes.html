@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cours : Les Nombres Complexes</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f7fa;
+      color: #222;
+      line-height: 1.7;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: linear-gradient(135deg, #007BFF, #0056b3);
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #0056b3;
+      border-left: 5px solid #007BFF;
+      padding-left: 10px;
+      margin-top: 40px;
+    }
+
+    h3 {
+      color: #333;
+      margin-top: 25px;
+    }
+
+    p, li {
+      font-size: 1.05em;
+    }
+
+    .definition, .exemple, .exercice {
+      border-left: 5px solid;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 5px;
+    }
+
+    .definition {
+      background: #e9f7fe;
+      border-color: #007BFF;
+    }
+
+    .exemple {
+      background: #eafaf1;
+      border-color: #28a745;
+    }
+
+    .exercice {
+      background: #fff4e5;
+      border-color: #ff9800;
+    }
+
+    code {
+      background: #f0f0f0;
+      padding: 3px 5px;
+      border-radius: 3px;
+      font-family: Consolas, monospace;
+    }
+
+    footer {
+      background: #0056b3;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+
+    .btn-retour {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #007BFF;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn-retour:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>📘 Cours complet : Les Nombres Complexes</h1>
+    <p>De A à Z – Explications, démonstrations, et exercices corrigés</p>
+  </header>
+
+  <div class="container">
+
+    <h2>1. Introduction</h2>
+    <p>Les nombres complexes étendent les nombres réels. Ils permettent de résoudre toutes les équations polynomiales, même celles sans solution réelle.</p>
+
+    <div class="exemple">
+      <b>Exemple :</b> L’équation <b>x² + 1 = 0</b> n’a pas de solution réelle.  
+      En introduisant le nombre <b>i</b> tel que <b>i² = -1</b>, on peut écrire les solutions :
+      <b>x = i</b> et <b>x = -i</b>.
+    </div>
+
+    <h2>2. Définition</h2>
+    <p>Un nombre complexe <b>z</b> s’écrit sous la forme <b>z = x + iy</b>, où :</p>
+    <ul>
+      <li><b>x</b> est la partie réelle, notée Re(z)</li>
+      <li><b>y</b> est la partie imaginaire, notée Im(z)</li>
+      <li><b>i</b> est tel que <b>i² = -1</b></li>
+    </ul>
+
+    <div class="exemple">
+      <p>Exemples :</p>
+      <ul>
+        <li>z₁ = 3 + 2i → Re(z₁)=3, Im(z₁)=2</li>
+        <li>z₂ = -1 - 4i → Re(z₂)=-1, Im(z₂)=-4</li>
+      </ul>
+    </div>
+
+    <h2>3. Opérations sur les complexes</h2>
+
+    <h3>Addition :</h3>
+    <p>(x₁ + iy₁) + (x₂ + iy₂) = (x₁ + x₂) + i(y₁ + y₂)</p>
+
+    <h3>Multiplication :</h3>
+    <p>(x₁ + iy₁)(x₂ + iy₂) = (x₁x₂ - y₁y₂) + i(x₁y₂ + x₂y₁)</p>
+
+    <div class="exemple">
+      <b>Exemple :</b> (2 + 3i)(4 - i) = 11 + 10i
+    </div>
+
+    <h2>4. Conjugué et module</h2>
+    <ul>
+      <li>Conjugué : <b>z̄ = x - iy</b></li>
+      <li>Module : <b>|z| = √(x² + y²)</b></li>
+    </ul>
+
+    <div class="exemple">
+      <b>Exemple :</b> z = 3 + 4i → |z| = 5
+    </div>
+
+    <h2>5. Représentation géométrique</h2>
+    <p>Le nombre complexe z = x + iy est représenté par le point M(x, y) dans le plan complexe (plan d’Argand).</p>
+
+    <h2>6. Forme trigonométrique</h2>
+    <p>z = r(cos θ + i sin θ)</p>
+    <p>où r = |z| et θ = arg(z)</p>
+
+    <div class="exemple">
+      <b>Exemple :</b> z = 1 + i → r = √2, θ = π/4  
+      Donc z = √2 (cos π/4 + i sin π/4)
+    </div>
+
+    <h2>7. Forme exponentielle</h2>
+    <p>z = r e<sup>iθ</sup> où e<sup>iθ</sup> = cos θ + i sin θ</p>
+
+    <h2>8. Puissances et racines (formule de Moivre)</h2>
+    <p>zⁿ = rⁿ e<sup>inθ</sup> = rⁿ (cos nθ + i sin nθ)</p>
+
+    <div class="exemple">
+      <b>Exemple :</b> Racines de i :  
+      i = e<sup>iπ/2</sup> → w₀ = e<sup>iπ/4</sup>, w₁ = e<sup>i5π/4</sup>
+    </div>
+
+    <h2>9. Équations complexes</h2>
+    <div class="exemple">
+      <b>Exemple :</b> Résoudre z² + 2z + 5 = 0  
+      Δ = -16 → √Δ = 4i  
+      ⇒ z = -1 ± 2i
+    </div>
+
+    <h2>10. Exercices d’application</h2>
+
+    <div class="exercice">
+      <b>Exercice 1 :</b> Écrire z = 3 + 3i sous forme exponentielle.  
+      → |z| = 3√2, arg(z) = π/4  
+      ⇒ z = 3√2 e<sup>iπ/4</sup>
+    </div>
+
+    <div class="exercice">
+      <b>Exercice 2 :</b> Résoudre z² = -4i  
+      → z = 2e<sup>-iπ/4</sup> et z = 2e<sup>i3π/4</sup>
+    </div>
+
+    <div class="exercice">
+      <b>Exercice 3 :</b> Trouver les racines cubiques de 8  
+      → z = 2e<sup>i0</sup>, 2e<sup>i2π/3</sup>, 2e<sup>i4π/3</sup>
+    </div>
+
+    <a href="index.html" class="btn-retour">⬅ Retour à l’accueil</a>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Aide aux Élèves — Tous droits réservés</p>
+  </footer>
+
+</body>
+</html>

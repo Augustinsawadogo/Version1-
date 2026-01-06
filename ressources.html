@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ressources - Aide aux Élèves</title>
+  <style>
+    body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; }
+    nav { background: #0077cc; padding: 15px 30px; display: flex; justify-content: space-between; }
+    nav .logo { color: white; font-size: 1.4rem; font-weight: bold; text-decoration: none; }
+    nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
+    nav ul li { margin-left: 20px; }
+    nav ul li a { color: white; text-decoration: none; font-weight: bold; }
+    nav ul li a:hover { text-decoration: underline; }
+
+    .resources { padding: 80px 20px; text-align: center; }
+    .resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+    .resource-card { background: #f9f9f9; border-radius: 12px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    .resource-card img { width: 80px; margin-bottom: 15px; }
+    .btn-resource { display: inline-block; padding: 10px 20px; background: #0077cc; color: white; border-radius: 8px; text-decoration: none; }
+    footer { background: #0077cc; color: white; text-align: center; padding: 20px; margin-top: 50px; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html#accueil" class="logo">📚 Aide aux Élèves</a>
+    <ul>
+      <li><a href="index.html#accueil">Accueil</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+      <li><a href="index.html#inscription">Inscription</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- SECTION RESSOURCES -->
+  <section class="resources">
+    <h2>📘 Nos Ressources</h2>
+    <div class="resource-grid">
+      <div class="resource-card">
+        <img src="https://img.icons8.com/color/96/000000/math.png" alt="Maths">
+        <h3>Mathématiques</h3>
+        <p>Cours et exercices de calcul, algèbre et géométrie.</p>
+        <a href="maths.html" class="btn-resource">Voir</a>
+      </div>
+      <div class="resource-card">
+        <img src="https://img.icons8.com/color/96/000000/book.png" alt="Français">
+        <h3>Français</h3>
+        <p>Grammaire, dissertation et fiches de lecture.</p>
+        <a href="français.html" class="btn-resource">Voir</a>
+      </div>
+      <div class="resource-card">
+        <img src="https://img.icons8.com/color/96/000000/microscope.png" alt="Sciences">
+        <h3>Sciences</h3>
+        <p>Physique, chimie et SVT.</p>
+        <a href="sciences.html" class="btn-resource">Voir</a>
+      </div>
+      <div class="resource-card">
+        <img src="https://img.icons8.com/color/96/000000/globe.png" alt="Histoire">
+        <h3>Histoire - Géographie</h3>
+        <p>Explore l’histoire et la géographie du monde.</p>
+        <a href="histoire.html" class="btn-resource">Voir</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Aide aux Élèves - Ressources</p>
+  </footer>
+
+</body>
+</html>

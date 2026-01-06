@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Suites numériques — Cours Terminale</title>
+  <style>
+    :root{
+      --blue:#007BFF;
+      --dark:#0b2545;
+      --bg:#f5f7fb;
+      --card:#fff;
+      --muted:#6b7280;
+      --accent:#ff9800;
+      --success:#28a745;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Segoe UI", Roboto, Arial, sans-serif;
+      background:var(--bg);
+      color:var(--dark);
+      -webkit-font-smoothing:antialiased;
+      line-height:1.6;
+    }
+    header{
+      background: linear-gradient(135deg,var(--blue),#0056b3);
+      color:#fff;
+      text-align:center;
+      padding:44px 18px;
+    }
+    header h1{margin:0;font-size:1.9rem}
+    header p{margin:8px 0 0;opacity:.95}
+    .container{max-width:1000px;margin:28px auto;padding:18px}
+    .card{background:var(--card);border-radius:10px;padding:16px;margin-bottom:18px;
+          box-shadow:0 6px 20px rgba(15,23,42,0.06)}
+    h2{color:var(--blue);margin:6px 0 12px;border-left:6px solid var(--blue);padding-left:12px}
+    h3{color:var(--dark);margin:12px 0}
+    p,li{font-size:1rem;color:var(--dark)}
+    ul{padding-left:1.1rem}
+    .definition{background:#e8f5ff;border-left:5px solid var(--blue);padding:12px;border-radius:6px;margin:12px 0}
+    .example{background:#eefaf1;border-left:4px solid var(--success);padding:12px;border-radius:6px;margin:12px 0}
+    .exercise{background:#fff4e5;border-left:4px solid var(--accent);padding:12px;border-radius:6px;margin:12px 0}
+    .solution{background:#f1f7ff;border-left:4px solid #2b6cb0;padding:12px;border-radius:6px;margin:10px 0;display:none}
+    .btn{
+      display:inline-block;padding:8px 12px;background:var(--blue);color:#fff;border-radius:8px;text-decoration:none;border:none;cursor:pointer;
+    }
+    .btn.secondary{background:#6c757d}
+    code{background:#f0f0f0;padding:3px 6px;border-radius:4px;font-family:Consolas,monospace}
+    footer{text-align:center;padding:14px 10px;color:#fff;background:#0056b3;margin-top:18px}
+    .small{font-size:0.95rem;color:var(--muted)}
+    pre{background:#0b1220;color:#dbeafe;padding:10px;border-radius:6px;overflow:auto}
+    @media (max-width:800px){header h1{font-size:1.4rem}}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🔢 Suites numériques — Cours complet (Terminale)</h1>
+    <p>Notions, propriétés, exemples détaillés et exercices corrigés — page autonome</p>
+  </header>
+
+  <main class="container">
+
+    <section class="card">
+      <h2>1. Introduction & vocabulaire</h2>
+      <p>Une <strong>suite numérique</strong> est une application qui à chaque entier naturel <code>n</code> associe un nombre réel <code>u_n</code>. On note la suite par <code>(u_n)</code> ou <code>(u_n)_{n≥0}</code> (ou <code>n≥1</code> selon le départ).</p>
+      <div class="definition">
+        <strong>Terme général :</strong> une suite peut être donnée par une formule explicite <code>u_n = f(n)</code> (terme général), ou par une relation de récurrence <code>u_{n+1} = g(u_n, n)</code> (suite définie par récurrence).
+      </div>
+      <p class="small">Exemples : <code>u_n = 2n + 1</code> (suite explicite), <code>u_{n+1} = 3 u_n</code> avec <code>u_0 = 2</code> (récurrence).</p>
+    </section>
+
+    <section class="card">
+      <h2>2. Suites arithmétiques</h2>
+      <h3>Définition</h3>
+      <p>Une suite <code>(u_n)</code> est dite <strong>arithmétique</strong> s'il existe un réel <code>r</code> tel que pour tout <code>n</code> :</p>
+      <p class="small"><code>u_{n+1} = u_n + r</code>. Le réel <code>r</code> est la raison.</p>
+
+      <h3>Formules clés</h3>
+      <ul>
+        <li>Terme général : <code>u_n = u_0 + n·r</code> (si on part de <code>u_0</code>).</li>
+        <li>Somme des N premiers termes (de 0 à n) : <code>∑_{k=0}^n u_k = (n+1)·(u_0 + u_n)/2</code>.</li>
+      </ul>
+
+      <div class="example">
+        <b>Exemple :</b> Si <code>u_0 = 5</code> et <code>r = -2</code>, alors <code>u_n = 5 - 2n</code>. <br>
+        On a <code>u_1 = 3, u_2 = 1, u_3 = -1</code>.
+      </div>
+
+      <h3>Monotonicité</h3>
+      <p>Si <code>r > 0</code> la suite est strictement croissante ; si <code>r < 0</code> elle est strictement décroissante ; si <code>r = 0</code> elle est constante.</p>
+    </section>
+
+    <section class="card">
+      <h2>3. Suites géométriques</h2>
+      <h3>Définition</h3>
+      <p>Une suite <code>(u_n)</code> est dite <strong>géométrique</strong> s'il existe un réel <code>q</code> tel que :</p>
+      <p class="small"><code>u_{n+1} = q · u_n</code>. Ici <code>q</code> est la raison.</p>
+
+      <h3>Formules clés</h3>
+      <ul>
+        <li>Terme général : <code>u_n = u_0 · q^n</code> (ou <code>u_n = u_1 · q^{n-1}</code> selon l'indice de départ).</li>
+        <li>Somme géométrique finie : pour <code>q ≠ 1</code>, <code>∑_{k=0}^n u_0 q^k = u_0 (1 - q^{n+1})/(1 - q)</code>.</li>
+      </ul>
+
+      <div class="example">
+        <b>Exemple :</b> Si <code>u_0 = 3</code> et <code>q = 2</code>, alors <code>u_n = 3 · 2^n</code> et la suite croît très vite.
+      </div>
+
+      <h3>Monotonicité</h3>
+      <p>Si <code>q > 1</code> et <code>u_0 > 0</code> alors la suite est croissante ; si <code>0 < q < 1</code>, la suite est décroissante vers 0 (si <code>u_0 > 0</code>). Si <code>q < 0</code>, la suite oscille (signes alternés).</p>
+    </section>
+
+    <section class="card">
+      <h2>4. Suites définies par récurrence</h2>
+      <p>Nombreuses suites en Terminale sont données par récurrence : <code>u_{n+1} = f(u_n)</code> avec une condition initiale <code>u_0</code> (ou <code>u_1</code>).</p>
+
+      <h3>Méthode générale d'étude</h3>
+      <ol>
+        <li>Montrer que la suite est bien définie pour tout <code>n</code> (par exemple si f est définie sur un intervalle contenant u_0).</li>
+        <li>Étudier la monotonicité (comparer u_{n+1} et u_n ; utiliser le signe de f(x)-x).</li>
+        <li>Montrer qu'elle est majorée/minorée (bornée).</li>
+        <li>Conclure sur la convergence : une suite monotone et bornée converge (théorème de convergence monotone).</li>
+        <li>Si elle converge vers ℓ, prendre la limite dans la relation de récurrence pour résoudre ℓ = f(ℓ) (fixpoint), puis justifier l'unicité si nécessaire.</li>
+      </ol>
+
+      <div class="example">
+        <b>Exemple classique :</b> suite définie par <code>u_{n+1} = (u_n + 2/u_n)/2</code> (algorithme d'approximation de √2). On montre qu'à partir d'un u_0>0 la suite reste positive, est décroissante si u_0>√2, croissante si u_0<√2, et converge vers √2 (sol. de ℓ = (ℓ + 2/ℓ)/2 ⇒ ℓ² = 2).
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>5. Convergence et divergence</h2>
+      <h3>Définitions</h3>
+      <p>La suite <code>(u_n)</code> converge vers L si pour tout ε>0 il existe N tel que ∀n≥N, |u_n − L| < ε. On note <code>lim_{n→∞} u_n = L</code>.</p>
+      <p>Si la suite n'a pas de limite finie, on dit qu'elle diverge (par exemple vers +∞, −∞, ou oscille).</p>
+
+      <h3>Théorèmes utiles</h3>
+      <ul>
+        <li>Une suite monotone et bornée converge.</li>
+        <li>Si <code>u_n → L</code> et <code>v_n → M</code>, alors <code>u_n + v_n → L+M</code>, <code>u_n v_n → LM</code>, et si <code>M ≠ 0</code> alors <code>u_n / v_n → L/M</code>.</li>
+      </ul>
+
+      <div class="example">
+        <b>Exemple :</b> la suite géométrique <code>u_n = q^n</code> converge vers 0 si <code>|q|<1</code>, diverge si <code>|q|>1</code>, et si <code>q=1</code> elle est constante.
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>6. Techniques et astuces</h2>
+      <ul>
+        <li>Pour une suite définie par une formule explicite, étudier le comportement de la fonction f(x) correspondante quand x→∞ (ex : polynômes, exponentielles).</li>
+        <li>Comparer avec des suites dont on connaît le comportement : si <code>0 ≤ u_n ≤ v_n</code> et <code>v_n → 0</code>, alors <code>u_n → 0</code> (théorème du gendarmes).</li>
+        <li>Si la suite est définie par récurrence et u_{n+1} = f(u_n) avec f continue, prendre la limite ℓ et résoudre ℓ = f(ℓ) pour trouver potentiels points d'accumulation.</li>
+        <li>Utiliser monotonicité + bornes pour prouver la convergence ; pour obtenir la valeur limite, résoudre l'équation fixe ou utiliser des majorations/encadrements.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>7. Exemples détaillés</h2>
+
+      <h3>Exemple 1 — suite arithmético-géométrique</h3>
+      <p>Considérons <code>u_{n+1} = a u_n + b</code> (a, b réels). Si <code>a ≠ 1</code>, on peut chercher une suite particulière constante <code>u* = a u* + b</code> ⇒ <code>u* = b/(1 − a)</code>. Posons <code>v_n = u_n − u*</code>. Alors :</p>
+      <p class="small">v_{n+1} = u_{n+1} − u* = a u_n + b − u* = a(u_n − u*) = a v_n.</p>
+      <p>Donc <code>v_n = v_0 a^n</code> et <code>u_n = u* + v_0 a^n</code>. Ainsi l'étude revient à une suite géométrique.</p>
+
+      <div class="example">
+        <b>Exemple numérique :</b> u_{n+1} = 0.5 u_n + 3, u_0 = 2. Ici u* = 3/(1−0.5)=6. v_0 = u_0 − 6 = −4 ⇒ u_n = 6 − 4·(0.5)^n → 6.
+      </div>
+
+      <h3>Exemple 2 — suite définie par récurrence monotone</h3>
+      <p>Soit <code>u_{n+1} = √(1 + u_n)</code> et <code>u_0 = 0</code>. On montre que la suite est croissante et minorée par 0, majorée par ϕ (résolution par point fixe). Posons la limite ℓ, prendre ℓ = √(1 + ℓ) ⇒ ℓ² = 1 + ℓ ⇒ ℓ² − ℓ − 1 = 0 ⇒ ℓ = (1+√5)/2 (seule racine positive). Donc <code>u_n → (1+√5)/2</code> (le nombre d'or).
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>8. Exercices (avec solutions cliquables)</h2>
+
+      <div class="exercise">
+        <b>Exercice 1 :</b> Soit la suite arithmétique de raison r = 4 et u_0 = 3. Calculer u_5 et la somme S_5 = ∑_{k=0}^5 u_k.
+        <div style="margin-top:8px">
+          <button class="btn" onclick="toggleSol('sol1')">Afficher la solution</button>
+        </div>
+        <div id="sol1" class="solution">
+          <b>Solution :</b><br>
+          u_5 = u_0 + 5r = 3 + 20 = 23. <br>
+          S_5 = (6)·(u_0 + u_5)/2 = 6·(3 + 23)/2 = 3·26 = 78.
+        </div>
+      </div>
+
+      <div class="exercise">
+        <b>Exercice 2 :</b> Suite géométrique : u_n = 5·(1/3)^n. Calculer lim_{n→∞} u_n et la somme partielle ∑_{k=0}^∞ u_k (si elle converge).
+        <div style="margin-top:8px">
+          <button class="btn" onclick="toggleSol('sol2')">Afficher la solution</button>
+        </div>
+        <div id="sol2" class="solution">
+          <b>Solution :</b><br>
+          |q| = 1/3 < 1 donc u_n → 0. Somme infinie = u_0 / (1 − q) = 5 / (1 − 1/3) = 5 / (2/3) = 15/2 = 7.5.
+        </div>
+      </div>
+
+      <div class="exercise">
+        <b>Exercice 3 :</b> Suite par récurrence : u_0 = 1, u_{n+1} = (u_n + 3)/2. Étudier la convergence et trouver la limite.
+        <div style="margin-top:8px">
+          <button class="btn" onclick="toggleSol('sol3')">Afficher la solution</button>
+        </div>
+        <div id="sol3" class="solution">
+          <b>Solution :</b><br>
+          C'est de la forme u_{n+1} = a u_n + b avec a = 1/2, b = 3/2. u* = b/(1 − a) = (3/2)/(1/2) = 3. Posons v_n = u_n − 3 ⇒ v_{n+1} = (1/2) v_n ⇒ v_n = v_0 (1/2)^n. Ici v_0 = u_0 − 3 = −2. Donc u_n = 3 − 2·(1/2)^n → 3.
+        </div>
+      </div>
+
+      <div class="exercise">
+        <b>Exercice 4 (dominé / gendarmes) :</b> On suppose 0 ≤ u_n ≤ 1/n pour n≥1. Que devient u_n quand n→∞ ?
+        <div style="margin-top:8px">
+          <button class="btn" onclick="toggleSol('sol4')">Afficher la solution</button>
+        </div>
+        <div id="sol4" class="solution">
+          <b>Solution :</b><br>
+          On a 0 ≤ u_n ≤ 1/n et 1/n → 0, donc par le théorème des gendarmes u_n → 0.
+        </div>
+      </div>
+
+    </section>
+
+    <section class="card">
+      <h2>9. Résumé — points essentiels à retenir</h2>
+      <ul>
+        <li>Suites arithmétiques : terme général linéaire, raison r, somme des termes facile.</li>
+        <li>Suites géométriques : terme général exponentiel, raison q, comportement selon |q|.</li>
+        <li>Suites par récurrence : étudier monotonicité et bornes ; si monotone + bornée ⇒ converge.</li>
+        <li>Technique : utiliser substitution pour transformer en suite géométrique (arithmético-géométrique).</li>
+      </ul>
+      <p class="small">Conseil bac : savoir reconnaître la forme, appliquer la méthode adaptée (ou chercher un point fixe), savoir manipuler les formules de somme et raison.</p>
+      <div style="margin-top:12px">
+        <a class="btn" href="index.html">⬅ Retour à l'accueil</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Aide aux Élèves — Suites numériques</p>
+  </footer>
+
+  <script>
+    // simple toggle for solution boxes
+    function toggleSol(id){
+      const el = document.getElementById(id);
+      if(!el) return;
+      el.style.display = (el.style.display === 'block') ? 'none' : 'block';
+      // smooth scroll to solution if opening
+      if(el.style.display === 'block'){
+        setTimeout(()=> el.scrollIntoView({behavior:'smooth', block:'center'}), 80);
+      }
+    }
+  </script>
+</body>
+</html>

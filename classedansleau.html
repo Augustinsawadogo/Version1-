@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cours - Classification des couples acide/base dans l’eau</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #f5f9ff;
+      margin: 0;
+      padding: 0;
+      color: #222;
+    }
+
+    header {
+      background: linear-gradient(90deg, #004aad, #0099ff);
+      color: white;
+      text-align: center;
+      padding: 35px 10px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.3em;
+    }
+
+    header p {
+      font-size: 1.1em;
+      opacity: 0.9;
+    }
+
+    main {
+      max-width: 1000px;
+      background: white;
+      margin: 30px auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #004aad;
+      border-left: 6px solid #0099ff;
+      padding-left: 10px;
+      margin-top: 40px;
+    }
+
+    h3 {
+      color: #0099ff;
+      margin-top: 25px;
+    }
+
+    .definition, .remarque, .formule, .exemple {
+      margin: 20px 0;
+      padding: 15px;
+      border-radius: 8px;
+    }
+
+    .definition {
+      background: #e8f3ff;
+      border-left: 5px solid #0099ff;
+    }
+
+    .remarque {
+      background: #fff5e6;
+      border-left: 5px solid #ffb100;
+    }
+
+    .formule {
+      background: #eef9f1;
+      border-left: 5px solid #00aa55;
+      font-family: monospace;
+      font-size: 1.05em;
+    }
+
+    .exemple {
+      background: #fef9e7;
+      border-left: 5px solid #ffaa00;
+    }
+
+    ul {
+      line-height: 1.8em;
+    }
+
+    footer {
+      background: #004aad;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>💧 Classification des couples acide/base dans l’eau</h1>
+    <p>Niveau Terminale — Cours complet et explicatif</p>
+  </header>
+
+  <main>
+    <h2>I. Introduction</h2>
+    <p>Dans une solution aqueuse, il existe de nombreux couples acide/base.  
+    Ces couples ne présentent pas tous la même force.  
+    Il est donc possible de les <strong>classer selon leur tendance à libérer ou capter un proton H⁺</strong>.</p>
+
+    <div class="definition">
+      <strong>But de la classification :</strong>  
+      Identifier quels sont les <strong>acides forts, acides faibles, bases fortes et bases faibles</strong> en solution aqueuse.
+    </div>
+
+    <h2>II. Force d’un acide ou d’une base dans l’eau</h2>
+    <div class="definition">
+      <strong>Acide fort :</strong> se dissocie totalement dans l’eau.  
+      <br><strong>Base forte :</strong> capte totalement un proton de l’eau.  
+      <br><strong>Acide faible / Base faible :</strong> se dissocient partiellement.
+    </div>
+
+    <div class="formule">
+      AH + H₂O ⇌ A⁻ + H₃O⁺  
+      B + H₂O ⇌ BH⁺ + OH⁻
+    </div>
+
+    <div class="remarque">
+      L’eau joue un rôle d’ampholyte : elle peut agir comme acide ou comme base.
+    </div>
+
+    <h2>III. Constante d’acidité (Ka) et pKa</h2>
+    <p>La force d’un acide est mesurée par la valeur de sa constante d’acidité <strong>Ka</strong>.</p>
+    <div class="formule">
+      Ka = [A⁻][H₃O⁺] / [AH]  
+      <br>pKa = −log(Ka)
+    </div>
+
+    <div class="remarque">
+      ➜ Plus Ka est grand (ou pKa petit), plus l’acide est fort.  
+      ➜ Plus Ka est petit (ou pKa grand), plus l’acide est faible.
+    </div>
+
+    <h2>IV. Classification des couples acide/base</h2>
+
+    <h3>1. Acides forts (pKa &lt; 0)</h3>
+    <ul>
+      <li>HCl / Cl⁻ → pKa ≈ −6</li>
+      <li>HBr / Br⁻ → pKa ≈ −9</li>
+      <li>HNO₃ / NO₃⁻ → pKa ≈ −1,4</li>
+      <li>H₂SO₄ / HSO₄⁻ → pKa₁ ≈ −3</li>
+    </ul>
+
+    <h3>2. Acides faibles (0 &lt; pKa &lt; 14)</h3>
+    <ul>
+      <li>CH₃COOH / CH₃COO⁻ → pKa ≈ 4,8</li>
+      <li>NH₄⁺ / NH₃ → pKa ≈ 9,2</li>
+      <li>H₂CO₃ / HCO₃⁻ → pKa ≈ 6,4</li>
+    </ul>
+
+    <h3>3. Bases fortes (pKa de leur acide conjugué &lt; 0)</h3>
+    <ul>
+      <li>OH⁻ (base de H₂O)</li>
+      <li>O²⁻ (base de OH⁻)</li>
+      <li>NH₂⁻ (base de NH₃)</li>
+    </ul>
+
+    <h3>4. Bases faibles (pKa de leur acide conjugué &gt; 14)</h3>
+    <ul>
+      <li>CH₃COO⁻</li>
+      <li>NH₃</li>
+      <li>CO₃²⁻</li>
+    </ul>
+
+    <h2>V. Domaine de prédominance dans l’eau</h2>
+    <p>À 25°C, l’eau définit un domaine de pH compris entre 0 et 14.  
+    On distingue alors trois domaines :</p>
+    <ul>
+      <li>pH &lt; 7 → milieu acide → forme acide prédominante</li>
+      <li>pH = 7 → neutralité (eau pure)</li>
+      <li>pH &gt; 7 → milieu basique → forme basique prédominante</li>
+    </ul>
+
+    <div class="exemple">
+      Exemple : pour le couple CH₃COOH / CH₃COO⁻ (pKa = 4,8)  
+      - Si pH &lt; 4,8 → CH₃COOH prédomine  
+      - Si pH &gt; 4,8 → CH₃COO⁻ prédomine
+    </div>
+
+    <h2>VI. Les espèces indifférentes</h2>
+    <div class="definition">
+      Certaines espèces n’interviennent pas dans les réactions acido-basiques : on les dit <strong>indifférentes</strong>.  
+      Exemple : Na⁺, K⁺, Cl⁻ (ions spectateurs).
+    </div>
+
+    <h2>VII. Échelle des forces acide/base dans l’eau</h2>
+    <div class="formule">
+      HCl → H₃O⁺ → H₂O → OH⁻ → NH₃ → NH₂⁻  
+      <br>
+      Acides forts → acides faibles → bases faibles → bases fortes
+    </div>
+
+    <div class="remarque">
+      Dans l’eau, <strong>H₃O⁺</strong> est le plus fort acide possible, et <strong>OH⁻</strong> la base la plus forte possible.  
+      On dit que l’eau <em>“nivelle”</em> la force des acides et des bases.
+    </div>
+
+    <h2>VIII. Réactions prépondérantes</h2>
+    <p>Une réaction acide-base est prépondérante si elle conduit à la formation des espèces les plus faibles (stables).</p>
+    <div class="formule">
+      Réaction spontanée si : pKa(acide₁) &lt; pKa(acide₂)
+    </div>
+
+    <div class="exemple">
+      Exemple :  
+      HCl + CH₃COO⁻ → CH₃COOH + Cl⁻  
+      <br>
+      pKa(HCl) = −6 &lt; pKa(CH₃COOH) = 4,8 → réaction totale.
+    </div>
+
+    <h2>IX. Exercice d’application</h2>
+    <div class="exemple">
+      <strong>Question :</strong>  
+      Classer les couples suivants selon la force acide décroissante :  
+      HCl/Cl⁻, H₂CO₃/HCO₃⁻, NH₄⁺/NH₃  
+      <br><br>
+      <strong>Correction :</strong>  
+      pKa(HCl) = −6 ; pKa(H₂CO₃) = 6,4 ; pKa(NH₄⁺) = 9,2  
+      <br>
+      ➜ HCl/Cl⁻ &gt; H₂CO₃/HCO₃⁻ &gt; NH₄⁺/NH₃
+    </div>
+
+    <h2>X. Conclusion</h2>
+    <p>La classification des couples acide/base permet de prédire les réactions acido-basiques dans l’eau.  
+    Les acides forts se dissocient totalement, les faibles partiellement, et l’eau fixe la limite de force chimique par les ions H₃O⁺ et OH⁻.</p>
+  </main>
+
+  <footer>
+    <p>© 2025 Aide aux Élèves | Cours de Chimie — Classification des couples acide/base</p>
+  </footer>
+</body>
+</html>

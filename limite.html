@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cours : Limites et Continuité — Terminale</title>
+  <style>
+    :root{
+      --blue:#007BFF;
+      --dark:#0b2545;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --bg:#f5f7fb;
+      --success:#28a745;
+      --accent:#ff9800;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background:var(--bg);
+      color:var(--dark);
+      -webkit-font-smoothing:antialiased;
+      line-height:1.6;
+    }
+
+    header{
+      background: linear-gradient(135deg,var(--blue),#0056b3);
+      color:#fff;
+      text-align:center;
+      padding:48px 20px;
+    }
+    header h1{margin:0;font-size:2.1rem}
+    header p{margin:8px 0 0;opacity:0.95}
+
+    .container{
+      max-width:1000px;
+      margin:28px auto;
+      padding:20px;
+    }
+
+    .card{
+      background:var(--card);
+      border-radius:10px;
+      padding:18px;
+      box-shadow:0 6px 20px rgba(15,23,42,0.06);
+      margin-bottom:20px;
+    }
+
+    h2{
+      color:var(--blue);
+      margin-top:0;
+      border-left:6px solid var(--blue);
+      padding-left:12px;
+      margin-bottom:12px;
+    }
+
+    h3{color:var(--dark); margin-bottom:8px}
+    p, li{font-size:1rem; color:var(--dark)}
+    ul{padding-left:1.1rem}
+
+    .definition{background:#e8f5ff;border-left:5px solid var(--blue);padding:12px;border-radius:6px;margin:12px 0}
+    .important{background:#fff8e6;border-left:5px solid var(--accent);padding:12px;border-radius:6px;margin:12px 0}
+    .example{background:#eefaf1;border-left:5px solid var(--success);padding:12px;border-radius:6px;margin:12px 0}
+    .exercise{background:#fff4e5;border-left:5px solid var(--accent);padding:12px;border-radius:6px;margin:12px 0}
+
+    .math{
+      background:#f8f9fb;
+      padding:10px;border-radius:6px;
+      font-family: "Times New Roman", Georgia, serif;
+      display:block;
+      margin:8px 0;
+    }
+
+    pre.code{
+      background:#0b1220;
+      color:#dbeafe;
+      padding:12px;
+      border-radius:6px;
+      overflow:auto;
+      font-size:0.95rem;
+    }
+
+    .row{
+      display:flex;
+      gap:16px;
+    }
+    .col{flex:1}
+
+    .btn{
+      display:inline-block;
+      padding:10px 14px;
+      background:var(--blue);
+      color:#fff;
+      text-decoration:none;
+      border-radius:8px;
+      transition:transform .12s;
+    }
+    .btn:hover{transform:translateY(-3px)}
+    footer{
+      text-align:center;
+      padding:14px 10px;
+      color:#fff;
+      background:#0056b3;
+      margin-top:30px;
+    }
+
+    /* responsive */
+    @media (max-width:800px){
+      .row{flex-direction:column}
+      header h1{font-size:1.6rem}
+    }
+
+    /* small inline formula style */
+    .fsmall{font-style:italic;color:var(--muted);font-size:0.95rem}
+    .sol{background:#f1f7ff;border-left:4px solid #2b6cb0;padding:12px;border-radius:6px;margin-top:10px}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>📘 Limites et Continuité — Terminale</h1>
+  <p>Cours complet, démonstrations, exemples pas-à-pas et exercices corrigés</p>
+</header>
+
+<main class="container">
+
+  <section class="card">
+    <h2>1. Objectifs et introduction</h2>
+    <p>Ce cours explique ce qu'est une <strong>limite</strong> d'une fonction, les différentes situations (limite finie, infinie, à gauche, à droite, en l'infini), la notion de <strong>continuité</strong>, et les méthodes pour calculer les limites. Niveau : Terminale (préparation aux défis du bac et à l'analyse élémentaire).</p>
+
+    <div class="definition">
+      <strong>Pourquoi les limites ?</strong>  
+      Les limites permettent de décrire le comportement d'une fonction quand la variable approche une valeur (par exemple : <em>x→a</em>), ou quand <em>x</em> devient très grand (x→±∞). Elles sont la base pour la dérivation, l'étude des fonctions et la résolution de limites indéterminées.
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>2. Notations et définitions de base</h2>
+
+    <h3>Limite finie en un point</h3>
+    <p>Pour une fonction <code>f</code> définie autour de <code>a</code> (sauf peut-être en <code>a</code>), on dit que <strong>f(x) tend vers L quand x tend vers a</strong> et on écrit :</p>
+    <p class="math">lim<sub>x→a</sub> f(x) = L</p>
+    <p class="fsmall">Signifie : pour x assez proche de a (mais ≠ a), les valeurs f(x) sont aussi proches que l'on veut de L.</p>
+
+    <h3>Limite à droite / à gauche</h3>
+    <p>On définit également :</p>
+    <ul>
+      <li><code>lim<sub>x→a⁻</sub> f(x)</code> : limite lorsque x approche a par des valeurs <strong>inférieures</strong> (gauche)</li>
+      <li><code>lim<sub>x→a⁺</sub> f(x)</code> : limite lorsque x approche a par des valeurs <strong>supérieures</strong> (droite)</li>
+    </ul>
+
+    <h3>Limite en l'infini</h3>
+    <p>On parle de <code>lim<sub>x→+∞</sub> f(x)</code> et <code>lim<sub>x→-∞</sub> f(x)</code> pour décrire le comportement au voisinage de l'infini.</p>
+
+    <div class="definition">
+      <strong>Limite infinie :</strong> On écrit <code>lim<sub>x→a</sub> f(x) = +∞</code> si f(x) devient arbitrairement grande quand x→a (similaire pour −∞).
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>3. Propriétés élémentaires</h2>
+    <p>Si <code>lim<sub>x→a</sub> f(x)=L</code> et <code>lim<sub>x→a</sub> g(x)=M</code> alors :</p>
+    <ul>
+      <li><code>lim (f+g) = L+M</code></li>
+      <li><code>lim (f·g) = L·M</code></li>
+      <li><code>lim (f/g) = L/M</code> si <code>M ≠ 0</code></li>
+      <li><code>lim (k·f) = k·L</code> pour k constant</li>
+    </ul>
+
+    <div class="important">
+      <strong>Remarque :</strong> ces propriétés sont valables pour les limites finies. Pour des limites infinies, applique les règles correspondantes (ex. produit d'une limite finie nulle par une limite infinie nécessite prudence).</div>
+  </section>
+
+  <section class="card">
+    <h2>4. Méthodes de calcul</h2>
+
+    <h3>4.1 Substitution directe</h3>
+    <p>Si f est une fonction polynomiale ou rationnelle définie en a et continue en a, alors <code>lim<sub>x→a</sub> f(x) = f(a)</code>. Ex. <code>lim<sub>x→2</sub> (x²+1) = 5</code>.</p>
+
+    <h3>4.2 Factorisation</h3>
+    <p>Quand substitution donne <code>0/0</code> (indéterminé), factorise et simplifie.</p>
+    <div class="example">
+      <b>Exemple :</b> <br>
+      Calculer <code>lim<sub>x→3</sub> (x²−9)/(x−3)</code>. Substitution → 0/0. Factorise : <code>(x−3)(x+3)/(x−3) = x+3</code> (pour x≠3). Limite = 6.
+    </div>
+
+    <h3>4.3 Conjugaison (pour racines)</h3>
+    <div class="example">
+      <b>Ex. :</b> <code>lim<sub>x→0</sub> (√(x+1) − 1)/x</code>. Multiplie numérateur et dénominateur par le conjugué : <code>(√(x+1) −1)(√(x+1)+1) / (x(√(x+1)+1)) = x/(x(√(x+1)+1)) = 1/(√(x+1)+1)</code> → en x→0 donne 1/2.
+    </div>
+
+    <h3>4.4 Règle de l'Hospital (règle pratique, Terminale)</h3>
+    <p>Si <code>lim f = 0</code> et <code>lim g = 0</code> (ou ±∞/±∞) et que <code>f' et g'</code> existent près de a (sauf peut-être en a) et <code>g'(x) ≠ 0</code>, alors si <code>lim (f'/g')</code> existe (finie ou ±∞) :</p>
+    <p class="math">lim<sub>x→a</sub> f(x)/g(x) = lim<sub>x→a</sub> f'(x)/g'(x)</p>
+    <div class="example">
+      <b>Ex. :</b> <code>lim<sub>x→0</sub> sin x / x</code>. Forme 0/0. dérivées : cos x / 1 -> limite = cos 0 = 1.
+    </div>
+
+    <h3>4.5 Composition et limites</h3>
+    <p>Si <code>lim<sub>x→a</sub> g(x) = L</code> et f est continue en L, alors <code>lim<sub>x→a</sub> f(g(x)) = f(L)</code>.</p>
+
+    <div class="important">
+      <strong>Astuce :</strong> repère les formes indéterminées : <code>0/0</code>, <code>∞/∞</code>, <code>0·∞</code>, <code>∞−∞</code>, <code>1^∞</code>, <code>0^0</code>, <code>∞^0</code>. Convertis-les en forme traitable (log, factorisation, division par la plus forte puissance, etc.).
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>5. Continuité</h2>
+    <div class="definition">
+      <strong>Définition :</strong> Une fonction f est continue en a si :
+      <ul>
+        <li>f est définie en a ;</li>
+        <li>lim<sub>x→a</sub> f(x) existe ;</li>
+        <li>lim<sub>x→a</sub> f(x) = f(a).</li>
+      </ul>
+    </div>
+
+    <p>Fonctions usuelles continues partout : polynômes, fonctions rationnelles (là où le dénominateur ≠ 0), sin, cos, exp, ln (sur leur domaine).</p>
+
+    <div class="example">
+      <b>Exemple :</b> <code>f(x)=x²</code> est continue partout. Donc <code>lim<sub>x→a</sub> x² = a²</code>.
+    </div>
+
+    <div class="important">
+      <strong>Propriété :</strong> Si f et g sont continues en a, alors f+g, f·g, f/g (si g(a)≠0) sont continues en a ; et composée f∘g est continue si f est continue en g(a).
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>6. Limites remarquables et résultats usuels</h2>
+    <ul>
+      <li><code>lim<sub>x→0</sub> (sin x)/x = 1</code></li>
+      <li><code>lim<sub>x→0</sub> (1+ x)^{1/x} = e</code></li>
+      <li><code>lim<sub>x→0</sub> (1−cos x)/x² = 1/2</code></li>
+      <li>Pour polynômes P, Q avec deg(P) < deg(Q) → lim<sub>x→±∞</sub> P(x)/Q(x) = 0</li>
+      <li>Si deg(P)=deg(Q) alors limite = ratio des coefficients dominants</li>
+      <li>Si deg(P)>deg(Q) alors limite = ±∞ selon les signes.</li>
+    </ul>
+
+    <div class="example">
+      <b>Ex. :</b> lim<sub>x→∞</sub> (3x²+2)/(5x²−x) = 3/5.
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>7. Étude de cas — méthodes pas à pas</h2>
+
+    <h3>Cas A : limite en un point, forme 0/0</h3>
+    <p>1) factoriser ; 2) simplifier ; 3) réévaluer la limite.</p>
+    <div class="example">
+      <b>Exemple :</b> lim<sub>x→1</sub> (x³−1)/(x−1). Factorise : (x−1)(x²+x+1)/(x−1) = x²+x+1 → en 1 : 3.
+    </div>
+
+    <h3>Cas B : limite en l'infini (rational fonctions)</h3>
+    <p>Diviser numérateur et dénominateur par la plus grande puissance de x.</p>
+    <div class="example">
+      <b>Ex. :</b> lim<sub>x→∞</sub> (2x³ + x)/(x³ − 5) → coefficients dominants 2/1 = 2.
+    </div>
+
+    <h3>Cas C : formes exponentielles (1+u(x))^{v(x)}</h3>
+    <p>Prendre le logarithme : si on a une forme 1^{∞}, on peut écrire limite = exp(lim v(x)·ln(1+u(x))) et utiliser ln~u pour u→0.</p>
+
+    <div class="example">
+      <b>Ex. :</b> lim<sub>x→0</sub> (1+ x)^{1/x} = exp( lim (1/x)·ln(1+x) ) = exp( lim (1/x)·x ) = e.
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>8. Continuité, points de discontinuité et types</h2>
+    <p>Une discontinuité peut être :</p>
+    <ul>
+      <li><strong>Supprimable</strong> : la limite existe mais f(a) n'est pas définie ou ≠ limite (on peut "completer" la fonction).</li>
+      <li><strong>De saut</strong> : limites à gauche et droite existent mais sont différentes.</li>
+      <li><strong>Essentielle / infinie</strong> : au moins une des limites latérales est ±∞ ou n'existe pas.</li>
+    </ul>
+
+    <div class="example">
+      <b>Ex. :</b> fonction définie par f(x) = (sin x)/x pour x≠0 et f(0)=10. Limite en 0 = 1, f(0)=10 → discontinuité supprimable (on peut poser f(0)=1).
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>9. Exercices (avec solutions détaillées)</h2>
+
+    <div class="exercise">
+      <b>Exercice 1 :</b> Calculer lim<sub>x→0</sub> (√(1+2x) − 1)/x.
+      <div class="sol">
+        <b>Solution :</b> Multiplie par le conjugué : (√(1+2x) −1)(√(1+2x)+1) / (x(√(1+2x)+1)) = (1+2x −1)/(x(√(1+2x)+1)) = 2x/(x(√(1+2x)+1)) = 2/(√(1+2x)+1). En x→0 : 2/(1+1)=1.
+      </div>
+    </div>
+
+    <div class="exercise">
+      <b>Exercice 2 :</b> lim<sub>x→0</sub> (sin 3x)/(5x).
+      <div class="sol">
+        <b>Solution :</b> sin 3x ≈ 3x pour x→0, donc limite = 3/5. Plus formel : (sin 3x)/(5x) = (sin 3x)/(3x) · 3/5 → 1·3/5 = 3/5.
+      </div>
+    </div>
+
+    <div class="exercise">
+      <b>Exercice 3 :</b> lim<sub>x→∞</sub> (x² + 3x + 2)/(4x³ − x).
+      <div class="sol">
+        <b>Solution :</b> degré numérateur 2, dénominateur 3 → limite = 0.
+      </div>
+    </div>
+
+    <div class="exercise">
+      <b>Exercice 4 (forme indéterminée 1^∞) :</b> lim<sub>x→0</sub> (1+2x)^{1/x}.
+      <div class="sol">
+        <b>Solution :</b> mettre en exp : = exp( lim<sub>x→0</sub> (1/x) ln(1+2x) ). Or ln(1+2x) ~ 2x, donc (1/x)ln(1+2x) ~ 2 → exp(2) = e².
+      </div>
+    </div>
+
+    <div class="exercise">
+      <b>Exercice 5 :</b> Déterminer la nature de la discontinuité en 0 de la fonction g définie par g(x)= { (sin x)/x si x≠0 ; 2 si x=0 }.
+      <div class="sol">
+        <b>Solution :</b> lim<sub>x→0</sub> (sin x)/x = 1 mais g(0)=2 → limite finie ≠ valeur → discontinuité supprimable (on peut redéfinir g(0)=1).
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>10. Méthodes rapides & conseils pour le bac</h2>
+    <ul>
+      <li>Regarde la forme (0/0, ∞/∞, 1^∞, etc.) → choisis la méthode adaptée.</li>
+      <li>Si tu as racines, pense à conjuguer.</li>
+      <li>Pour polynômes rationnels en ∞, compare les degrés.</li>
+      <li>Utilise les développements limités simples (sin x ≈ x, cos x ≈ 1 − x²/2, ln(1+x) ≈ x pour x→0) pour accélérer.</li>
+      <li>Gestion du signe : quand la limite est ±∞, précise le signe selon le contexte.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>11. Récapitulatif</h2>
+    <ul>
+      <li>Limite = comportement près d'un point / à l'infini.</li>
+      <li>Continuité = limite égale à la valeur en ce point.</li>
+      <li>Principales techniques : substitution, factorisation, conjugué, règle de l'Hospital, développement limité.</li>
+    </ul>
+
+    <a class="btn" href="index.html">⬅ Retour à l'accueil</a>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Aide aux Élèves — Limites & Continuité</p>
+</footer>
+
+</body>
+</html>
